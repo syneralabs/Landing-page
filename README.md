@@ -2,7 +2,7 @@
 
 ## Vesion 1.0 
 
-## Equipe: Murilo, Júlio, 
+## Equipe: Antonio murilo, Júlio, Valdomar Pacheco
 
 ![alt](./img/Captura%20de%20tela%202025-11-04%20182606.png)
 
