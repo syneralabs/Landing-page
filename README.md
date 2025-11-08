@@ -4,8 +4,6 @@
 
 ## Equipe: Antonio murilo, Júlio, Valdomar Pacheco
 
-## Tecnologias usadas HTML5 CSS3 JavaScript
-
 ## Synera Labs — Soluções Digitais Inteligentes 
 
 Bem-vindo(a) à Synera Labs, uma empresa de tecnologia especializada em desenvolvimento de sistemas web, desktop e mobile. 
@@ -85,9 +83,8 @@ O site é composto por módulos integrados:
 
 📧 E-mail: syneralabs@gmail.com  
 🌍 Site:  
-💼 LinkedIn:  
-💼 LinkedIn:
-💼 LinkedIn:
+💼 LinkedIn: https://www.linkedin.com/in/synera-labs-undefined-a52416397/
+
 📍 Localização: São Paulo 
 
 ##  Sobre a Synera Labs 
