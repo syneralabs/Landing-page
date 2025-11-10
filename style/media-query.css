@@ -1,0 +1,15 @@
+/* Tela de mobile 321px a 376 */
+@media screen and (min-width: 321px) and (max-width: 376px) {
+   .card3 {
+        position: absolute;
+        right: 115px;
+    }
+}
+
+/* Tela de mobile 376px até 426px */
+@media screen and (min-width: 371px) and (max-width: 426px) {
+    .card3 {
+        position: absolute;
+        right: 135px;
+    }
+}

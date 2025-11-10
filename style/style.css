@@ -18,7 +18,7 @@
 /* Estilização do body */
 
 body{
-  height: 500%;
+  height: 1000%;
     font-family: "Inter", sans-serif; /*Fonte do projetor usando Inter e sans-serif*/
     background-color: var(--primary-color);
     color: #000;
@@ -30,7 +30,7 @@ body{
     position: relative;    
     background-color: var(--second-color);
     width: 100%;
-    height: 300px;
+    height: 400px;
 }
 
 #content-herder h1{
@@ -160,9 +160,10 @@ ul li a {
 
 /* Cads com as fotos e informações do Dev */
 
+/* Card Murilo */
 .card1{
   position: absolute;
-  top: 161px;
+  top: 260px;
   left: 6px;
   font-size: 11px;
   font-family: "Inter", sans-serif;
@@ -199,9 +200,10 @@ ul li a {
   margin-top: 10px;
 }
 
+/* Card Julio */
 .card2 {
   position: absolute;
-  top: 161px;
+  top: 260px;
   right: 6px;
   font-size: 11px;
   font-family: "Inter", sans-serif;
@@ -225,9 +227,10 @@ ul li a {
   text-align: center;
 }
 
+/* Card Valdoma Pacheco */
 .card3 {
   position: absolute;
-  top: 460px;
+  top: 560px;
   right: 90px;
   font-size: 11px;
   font-family: "Inter", sans-serif;
