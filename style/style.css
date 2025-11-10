@@ -18,10 +18,12 @@
 /* Estilização do body */
 
 body{
+  height: 500%;
     font-family: "Inter", sans-serif; /*Fonte do projetor usando Inter e sans-serif*/
     background-color: var(--primary-color);
     color: #000;
     line-height: 1.6;
+
 }
 
 #content-herder{
@@ -154,4 +156,102 @@ ul li a {
 
 .mostra {
     display: block;
+}
+
+/* Cads com as fotos e informações do Dev */
+
+.card1{
+  position: absolute;
+  top: 161px;
+  left: 6px;
+  font-size: 11px;
+  font-family: "Inter", sans-serif;
+  font-weight: normal;
+}
+
+.nomeMurilo{
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.tipoDevMurilo{
+  text-align: center;
+}
+
+.info1 {
+  position: relative;
+  width: 150px;
+  height: 123px;
+  border: 1px solid #000;
+}
+
+.tecInformadas {
+  display: inline-block;
+  width: 21px;
+  height: 23px;
+}
+
+.tec {
+  display: inline-block;
+  padding-left: 10px;
+  padding-top: 5px;
+  margin-top: 10px;
+}
+
+.card2 {
+  position: absolute;
+  top: 161px;
+  right: 6px;
+  font-size: 11px;
+  font-family: "Inter", sans-serif;
+  font-weight: normal;
+}
+
+.info2 {
+  position: relative;
+  width: 150px;
+  height: 123px;
+  border: 1px solid #000;
+}
+
+.nomeJulio {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.tipoDevJulio {
+  text-align: center;
+}
+
+.card3 {
+  position: absolute;
+  top: 460px;
+  right: 90px;
+  font-size: 11px;
+  font-family: "Inter", sans-serif;
+  font-weight: normal;
+}
+
+.info3 {
+  position: relative;
+  width: 150px;
+  height: 123px;
+  border: 1px solid #000;
+}
+
+.nomeValdoma {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.tipoDevValdoma {
+  text-align: center;
+}
+
+.foto{
+  width: 150px;
+  height: 139px;  
 }
