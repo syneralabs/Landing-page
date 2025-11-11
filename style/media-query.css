@@ -75,6 +75,26 @@
         display: inline-block;
         padding-left: 15px;
     }
+
+    .esconder a {
+        position: relative;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px 0;
+        transition: color 0.3s ease;
+    }
+
+    .esconder .laser {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 3px;
+        width: 0;
+        background: blue;
+        box-shadow: 0 0 10px blue, 0 0 20px blue;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
     
     .cards {
         width: 60%;
@@ -110,6 +130,26 @@
     li {
         display: inline-block;
         padding-left: 15px;
+    }
+
+    .esconder a {
+        position: relative;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px 0;
+        transition: color 0.3s ease;
+    }
+
+    .esconder .laser {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 3px;
+        width: 0;
+        background: blue;
+        box-shadow: 0 0 10px blue, 0 0 20px blue;
+        border-radius: 2px;
+        transition: all 0.3s ease;
     }
     
    .cards {
