@@ -12,6 +12,7 @@
 :root{
  --primary-color: #D9D9D9;
  --second-color: #009DFF;
+ --color-general: #ffffff;
  --button-color: rgb(255 255 255 / 16%);
 }
 
@@ -139,8 +140,8 @@ body{
 
 /* Texto do menu */
 
-ul li{
-    list-style: none;
+ul li{ 
+  list-style: none;
 }
 
 ul li a {
@@ -156,6 +157,18 @@ ul li a {
 
 .mostra {
     display: block;
+}
+
+/* H2 com titulo do herder */
+
+h2 {
+  padding-top: 150px;
+  text-align: center;
+  font-size: 32px;
+  color: var(--color-general);
+  font-weight: bold;
+  font-family: "Inter", sans-serif;
+  
 }
 
 /* Cads com as fotos e informações do Dev */
@@ -193,7 +206,11 @@ ul li a {
   position: relative;
   width: 150px;
   height: 123px;
-  border: 1px solid #000;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+  10px 8px 20px rgba(92, 92, 92, 0.4),
+  5px 4px 15px rgba(92, 92, 92, 0.3),
+  2px 2px 8px rgba(92, 92, 92, 0.2);
 }
 
 .tecInformadas {
@@ -222,6 +239,11 @@ ul li a {
   width: 150px;
   height: 123px;
   border: 1px solid #000;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+  10px 8px 20px rgba(92, 92, 92, 0.4),
+  5px 4px 15px rgba(92, 92, 92, 0.3),
+  2px 2px 8px rgba(92, 92, 92, 0.2);
 }
 
 .nomeJulio {
@@ -237,7 +259,7 @@ ul li a {
 /* Card Valdoma Pacheco */
 .card3 {
   display: inline-block;
-  margin: 25px 0px 0px 75px;
+  margin: 25px 0px 0px 80px;
   font-size: 11px;
   font-family: "Inter", sans-serif;
   font-weight: normal;
@@ -248,6 +270,11 @@ ul li a {
   width: 150px;
   height: 123px;
   border: 1px solid #000;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+  10px 8px 20px rgba(92, 92, 92, 0.4),
+  5px 4px 15px rgba(92, 92, 92, 0.3),
+  2px 2px 8px rgba(92, 92, 92, 0.2);
 }
 
 .nomeValdoma {
