@@ -160,11 +160,20 @@ ul li a {
 
 /* Cads com as fotos e informações do Dev */
 
+.cards {
+  width: 100%;
+  height: 600px;
+  position: absolute;
+  top: 140%;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+}
+
 /* Card Murilo */
 .card1{
-  position: absolute;
-  top: 260px;
-  left: 6px;
+  display: inline-block;
+  margin-left: 8px;
   font-size: 11px;
   font-family: "Inter", sans-serif;
   font-weight: normal;
@@ -202,9 +211,7 @@ ul li a {
 
 /* Card Julio */
 .card2 {
-  position: absolute;
-  top: 260px;
-  right: 6px;
+  display: inline-block;
   font-size: 11px;
   font-family: "Inter", sans-serif;
   font-weight: normal;
@@ -229,9 +236,8 @@ ul li a {
 
 /* Card Valdoma Pacheco */
 .card3 {
-  position: absolute;
-  top: 560px;
-  right: 90px;
+  display: inline-block;
+  margin: 25px 0px 0px 75px;
   font-size: 11px;
   font-family: "Inter", sans-serif;
   font-weight: normal;

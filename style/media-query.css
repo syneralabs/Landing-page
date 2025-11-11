@@ -1,16 +1,25 @@
 /* Tela de mobile 321px a 376 */
 @media screen and (min-width: 321px) and (max-width: 376px) {
-   .card3 {
-        position: absolute;
-        right: 115px;
+   .card1{
+        margin-left: 30px;
+        padding-right: 10px;
     }
+
+    .card3 {
+       margin: 25px 0px 0px 110px; 
+    }
+
 }
 
 /* Tela de mobile 376px até 426px */
-@media screen and (min-width: 371px) and (max-width: 426px) {
+@media screen and (min-width: 377px) and (max-width: 426px) {
+    .card1{
+        margin-left: 50px;
+        padding-right: 10px;
+    }
+
     .card3 {
-        position: absolute;
-        right: 135px;
+       margin: 25px 0px 0px 130px; 
     }
 }
 
@@ -31,18 +40,23 @@
         padding-left: 15px;
     }
 
-    .card1 {
-        left: 110px;
+    .cards {
+        width: 75%;
+        height: 600px;
+        position: absolute;
     }
 
-    .card2 {
-        right: 100px;
+    .card1{
+        margin-left: 50px;
+        padding-right: 10px;
     }
-    
+
     .card3 {
-        top: 260px;
-        right: 300px;
+        display: inline-block;
+        margin: 0px 0px 0px 0px;
+        padding-left: 10px;
     }
+
 }
 
 /* Tela de laptop de 769px até 1024px */
@@ -62,18 +76,24 @@
         padding-left: 15px;
     }
     
-    .card1 {
-        left: 240px;
+    .cards {
+        width: 60%;
+        height: 600px;
+        position: absolute;
     }
 
-    .card2 {
-        right: 180px;
+    .card1{
+        margin-left: 65px;
+        padding-right: 10px;
     }
-    
+
     .card3 {
-        top: 260px;
-        right: 400px;
+        display: inline-block;
+        margin: 0px 0px 0px 0px;
+        padding-left: 10px;
     }
+
+
 }
 
 /* Tela de computador acima de 1025px */
@@ -92,16 +112,21 @@
         padding-left: 15px;
     }
     
-    .card1 {
-        left: 380px;
+   .cards {
+        width: 40%;
+        height: 600px;
+        position: absolute;
     }
 
-    .card2 {
-        right: 400px;
+    .card1{
+        margin-left: 50px;
+        padding-right: 10px;
     }
-    
+
     .card3 {
-        top: 260px;
-        right: 700px;
+        display: inline-block;
+        margin: 0px 0px 0px 0px;
+        padding-left: 10px;
     }
+
 }
