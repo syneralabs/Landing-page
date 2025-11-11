@@ -13,3 +13,95 @@
         right: 135px;
     }
 }
+
+/* Tela de tablet 427px até 768px */
+@media screen and (min-width: 427px) and (max-width: 768px) {
+    
+    #button {
+        display: none;
+    }
+
+    .esconder {
+        display: inline-block;
+
+    }
+
+    li {
+        display: inline-block;
+        padding-left: 15px;
+    }
+
+    .card1 {
+        left: 110px;
+    }
+
+    .card2 {
+        right: 100px;
+    }
+    
+    .card3 {
+        top: 260px;
+        right: 300px;
+    }
+}
+
+/* Tela de laptop de 769px até 1024px */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    
+    #button {
+        display: none;
+    }
+
+    .esconder {
+        display: inline-block;
+
+    }
+
+    li {
+        display: inline-block;
+        padding-left: 15px;
+    }
+    
+    .card1 {
+        left: 240px;
+    }
+
+    .card2 {
+        right: 180px;
+    }
+    
+    .card3 {
+        top: 260px;
+        right: 400px;
+    }
+}
+
+/* Tela de computador acima de 1025px */
+@media screen and (min-width: 1026px) {
+    #button {
+        display: none;
+    }
+
+    .esconder {
+        display: inline-block;
+
+    }
+
+    li {
+        display: inline-block;
+        padding-left: 15px;
+    }
+    
+    .card1 {
+        left: 380px;
+    }
+
+    .card2 {
+        right: 400px;
+    }
+    
+    .card3 {
+        top: 260px;
+        right: 700px;
+    }
+}
