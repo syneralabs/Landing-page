@@ -15,6 +15,7 @@
  --color-general: #ffffff;
  --button-color: rgb(255 255 255 / 16%);
  --stroke-color: #000000;
+ --background-burger: #f9f9f9;
 }
 
 /* Estilização do body */
@@ -91,7 +92,7 @@ body{
   display: block;
   border-radius: 2px;
   height: 2px;
-  background: #f9f9f9;
+  background: var(--background-burger);
   transition: 0.3s;
 }
 
