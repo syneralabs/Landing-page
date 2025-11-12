@@ -12,6 +12,8 @@
 :root{
  --primary-color: #D9D9D9;
  --second-color: #009DFF;
+ --color-title: #0e2c59;
+ --logo-color: #0070B6;
  --color-general: #ffffff;
  --button-color: rgb(255 255 255 / 16%);
  --stroke-color: #000000;
@@ -79,6 +81,14 @@ body{
   opacity: 1;
   background: var(--button-color);
 }
+
+.logoH1 {
+  color: var(--logo-color);
+}
+
+.title-h2 {
+  color: var(--color-title);
+} 
 
 .burger {
   position: relative;
