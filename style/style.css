@@ -10,5 +10,308 @@
     Exemplo:  --primary-color: #000000;
 */
 :root{
+ --primary-color: #D9D9D9;
+ --second-color: #009DFF;
+ --color-title: #0e2c59;
+ --logo-color: #0070B6;
+ --color-general: #ffffff;
+ --button-color: rgb(255 255 255 / 16%);
+ --stroke-color: #000000;
+ --background-burger: #f9f9f9;
+}
 
+/* Estilização do body */
+
+body{
+  height: 1000%;
+    font-family: "Inter", sans-serif; /*Fonte do projetor usando Inter e sans-serif*/
+    background-color: var(--primary-color);
+    color: var(--stroke-color);
+    line-height: 1.6;
+
+}
+
+#content-herder{
+    position: relative;    
+    background-color: var(--second-color);
+    width: 100%;
+    height: 400px;
+}
+
+#content-herder h1{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    font-weight: bolder;   
+}
+
+#content-herder #menu{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 16px;
+    font-weight: normal;   
+}
+
+.Menu-fixed {
+  width: 100%;
+  height: 30px;
+  position: fixed; 
+  z-index: 999;
+}
+
+/* Menu */
+.button {
+  background: var(--button-color);
+  border: 0;
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0.6;
+  scale: 0.7;
+  border-radius: 8px;
+  transition: 0.25s;
+}
+
+.button:hover {
+  opacity: 1;
+  background: var(--button-color);
+}
+
+.logoH1 {
+  color: var(--logo-color);
+}
+
+.title-h2 {
+  color: var(--color-title);
+} 
+
+.burger {
+  position: relative;
+  width: 32px;
+  border: 0;
+}
+
+.burger,
+.burger::before,
+.burger::after {
+  display: block;
+  border-radius: 2px;
+  height: 2px;
+  background: var(--background-burger);
+  transition: 0.3s;
+}
+
+.burger::before,
+.burger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+
+.burger::before {
+  top: -8px;
+}
+
+.burger::after {
+  top: 8px;
+}
+
+.ham {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 400ms;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transform: scaleY(0.8) scaleX(1.2);
+}
+
+.burger-6.is-closed.hamRotate {
+  transform: rotate(45deg) scale(1.2);
+}
+
+.line {
+  fill: none;
+  transition: 0.4s;
+  stroke: var(--stroke-color);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+.ham1 .top {
+  stroke-dasharray: 40 139;
+}
+.ham1 .bottom {
+  stroke-dasharray: 40 180;
+}
+.burger-6.is-closed.ham1 .top {
+  stroke-dashoffset: -98px;
+}
+.burger-6.is-closed.ham1 .bottom {
+  stroke-dashoffset: -138px;
+}
+
+/* Texto do menu */
+
+ul li{ 
+  list-style: none;
+}
+
+ul li a {
+    direction: rtl;
+    text-decoration: none;
+    color: var(--color-general);
+    
+}
+
+
+.esconder{
+    display: none;
+}
+
+.mostra {
+    display: block;
+}
+
+.text-menu {
+  color: var(--stroke-color);
+}
+
+/* H2 com titulo do herder */
+
+h2 {
+  padding-top: 150px;
+  text-align: center;
+  font-size: 32px;
+  color: var(--color-general);
+  font-weight: bold;
+  font-family: "Inter", sans-serif;
+  
+}
+
+/* Cads com as fotos e informações do Dev */
+
+.cards {
+  width: 100%;
+  height: 600px;
+  position: absolute;
+  top: 140%;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Card Murilo */
+.card1{
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 11px;
+  font-family: "Inter", sans-serif;
+  font-weight: normal;
+}
+
+.nomeMurilo{
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.tipoDevMurilo{
+  text-align: center;
+}
+
+.info1 {
+  position: relative;
+  width: 150px;
+  height: 123px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+  10px 8px 20px rgba(92, 92, 92, 0.4),
+  5px 4px 15px rgba(92, 92, 92, 0.3),
+  2px 2px 8px rgba(92, 92, 92, 0.2);
+}
+
+.tecInformadas {
+  display: inline-block;
+  width: 21px;
+  height: 23px;
+}
+
+.tec {
+  display: inline-block;
+  padding-left: 10px;
+  padding-top: 5px;
+  margin-top: 10px;
+}
+
+/* Card Julio */
+.card2 {
+  display: inline-block;
+  font-size: 11px;
+  font-family: "Inter", sans-serif;
+  font-weight: normal;
+}
+
+.info2 {
+  position: relative;
+  width: 150px;
+  height: 123px;
+  border: 1px solid #000;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+  10px 8px 20px rgba(92, 92, 92, 0.4),
+  5px 4px 15px rgba(92, 92, 92, 0.3),
+  2px 2px 8px rgba(92, 92, 92, 0.2);
+}
+
+.nomeJulio {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.tipoDevJulio {
+  text-align: center;
+}
+
+/* Card Valdoma Pacheco */
+.card3 {
+  display: inline-block;
+  margin: 25px 0px 0px 80px;
+  font-size: 11px;
+  font-family: "Inter", sans-serif;
+  font-weight: normal;
+}
+
+.info3 {
+  position: relative;
+  width: 150px;
+  height: 123px;
+  border: 1px solid #000;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+  10px 8px 20px rgba(92, 92, 92, 0.4),
+  5px 4px 15px rgba(92, 92, 92, 0.3),
+  2px 2px 8px rgba(92, 92, 92, 0.2);
+}
+
+.nomeValdoma {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.tipoDevValdoma {
+  text-align: center;
+}
+
+.foto{
+  width: 150px;
+  height: 139px;  
 }

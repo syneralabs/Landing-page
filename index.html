@@ -5,12 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Synera Labs</title>
     <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/media-query.css">
     <link rel="shortcut icon" href="./img/Design sem nome.png" type="icon da empresa Synera Labs">
 
 </head>
 <body>
-    <header>
-    
+    <!-- Aqui vai Logo e Menu do sistema e os cards de perso -->
+    <header id="content-herder">
+        <div class="Menu-fixed">
+            <div id="logo">
+                <h1 class="logoH1">Synera Labs</h1>
+            </div>
+            <nav id="menu">
+                <button onclick="this.querySelector('svg').classList.toggle('is-closed')"
+                class="button" id="button"> 
+
+                <svg class="burger-6 ham hamRotate ham1" viewBox="0 0 100 100">
+                    <path
+                        class="line top"
+                        d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40"
+                    />
+                    <path class="line middle" d="m 30,50 h 40" />
+                    <path
+                        class="line bottom"
+                        d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40"
+                    />
+                </svg>
+
+                </button>
+                <ul class="esconder">
+                    <li><a href="#content-herder" class="text-menu">Home</a></li>
+                    <li><a href="#" class="text-menu">Sobre Nós</a></li>
+                    <li><a href="#" class="text-menu">Serviços</a></li>
+                    <li><a href="#" class="text-menu">Contato</a></li>
+                    <span class="laser"></span>
+                </ul>
+            </nav>
+        </div>
+        
+
+        <h2 class="title-h2">
+            Desenvolvedores
+        </h2>
+
+        <div class="cards">
+            <div class="card1">
+                <div class="foto">
+                    <img src="./img/foto-murilo.svg" alt="Antonio Murilo">
+                </div>
+                <div class="info1">
+                    <p class="nomeMurilo">Antonio Murilo</p>
+                    <p class="tipoDevMurilo">Desenvolvedor FullStack</p>
+                    <div class="tec">
+                        <img class="tecInformadas Java" src="./img/icon-java.svg" alt="Java">
+                    </div>
+                    <div class="tec">
+                        <img class="tecInformadas javaScript" src="./img/icon.javaScript.svg" alt="JavaScript">
+                    </div>
+                </div>
+            </div>
+            <div class="card2">
+                <div class="foto">
+                    <img src="./img/foto-murilo.svg" alt="valdoma Pacheco">
+                </div>
+                <div class="info3">
+                    <p class="nomeValdoma">Valdoma Pacheco</p>
+                    <p class="tipoDevValdoma">Desenvolvedor FullStack</p>
+                    <div class="tec">
+                        <img class="tecInformadas" src="./img/icon.javaScript.svg" alt="Python">
+                    </div>
+                    <div class="tec">
+                        <img class="tecInformadas" src="./img/icon-java.svg" alt="Java">
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="card3">
+                <div class="foto">
+                    <img src="./img/foto-julio.svg" alt="Julio Cesar">
+                </div>
+                <div class="info2">
+                    <p class="nomeJulio">Julio Cesar</p>
+                    <p class="tipoDevJulio">Desenvolvedor FullStack</p>
+                    <div class="tec">
+                        <img class="tecInformadas" src="./img/icon-python.svg" alt="Python">
+                    </div>
+                    <div class="tec">
+                        <img class="tecInformadas" src="./img/icon-java.svg" alt="Java">
+                    </div>
+                    <div class="tec">
+                        <img class="tecInformadas" src="./img/icon-c.svg" alt="C">
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
     <main>
@@ -18,7 +106,7 @@
     </main>
 
     <footer>
-        <p>© 2024 Synera Labs. Todos os direitos reservados.</p>
+        
     </footer>
 
     <script src="./script/script.js"></script>
