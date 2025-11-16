@@ -199,22 +199,29 @@ h2 {
 
 .cards {
   width: 100%;
-  height: 600px;
-  position: absolute;
-  top: 140%;
-  left: 50%;
-  right: 50%;
-  transform: translate(-50%, -50%);
+  max-width: 900px;         
+  margin: 0 auto;           
+  display: flex;
+  justify-content: center;  
+  align-items: flex-start;
+  flex-wrap: wrap;          
+  gap: 30px;                
+  padding: 60px 0px ;          
+  position: relative;
+}
+
+.card1,
+.card3 {
+  margin: 0;                /* remove margens manuais */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.foto {
+  height: 139px;
 }
 
 /* Card Murilo */
-.card1{
-  display: inline-block;
-  margin-left: 8px;
-  font-size: 11px;
-  font-family: "Inter", sans-serif;
-  font-weight: normal;
-}
 
 .nomeMurilo{
   text-align: center;
@@ -229,7 +236,7 @@ h2 {
 .info1 {
   position: relative;
   width: 150px;
-  height: 123px;
+  height: 150px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow:
   10px 8px 20px rgba(92, 92, 92, 0.4),
@@ -250,18 +257,10 @@ h2 {
   margin-top: 10px;
 }
 
-/* Card Julio */
-.card2 {
-  display: inline-block;
-  font-size: 11px;
-  font-family: "Inter", sans-serif;
-  font-weight: normal;
-}
-
 .info2 {
   position: relative;
   width: 150px;
-  height: 123px;
+  height: 150px;
   border: 1px solid #000;
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow:
@@ -278,40 +277,4 @@ h2 {
 
 .tipoDevJulio {
   text-align: center;
-}
-
-/* Card Valdoma Pacheco */
-.card3 {
-  display: inline-block;
-  margin: 25px 0px 0px 80px;
-  font-size: 11px;
-  font-family: "Inter", sans-serif;
-  font-weight: normal;
-}
-
-.info3 {
-  position: relative;
-  width: 150px;
-  height: 123px;
-  border: 1px solid #000;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow:
-  10px 8px 20px rgba(92, 92, 92, 0.4),
-  5px 4px 15px rgba(92, 92, 92, 0.3),
-  2px 2px 8px rgba(92, 92, 92, 0.2);
-}
-
-.nomeValdoma {
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.tipoDevValdoma {
-  text-align: center;
-}
-
-.foto{
-  width: 150px;
-  height: 139px;  
 }
