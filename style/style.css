@@ -14,7 +14,7 @@
  --second-color: #009DFF;
  --color-title: #0e2c59;
  --logo-color: #0070B6;
- --color-general: #ffffff;
+ --color-geral: #ffffff;
  --button-color: rgb(255 255 255 / 16%);
  --stroke-color: #000000;
  --background-burger: #f9f9f9;
@@ -86,9 +86,6 @@ body{
   color: var(--logo-color);
 }
 
-.title-h2 {
-  color: var(--color-title);
-} 
 
 .burger {
   position: relative;
@@ -166,7 +163,7 @@ ul li{
 ul li a {
     direction: rtl;
     text-decoration: none;
-    color: var(--color-general);
+    color: var(--color-geral);
     
 }
 
@@ -188,8 +185,8 @@ ul li a {
 h2 {
   padding-top: 150px;
   text-align: center;
+  color: var(--color-title);
   font-size: 32px;
-  color: var(--color-general);
   font-weight: bold;
   font-family: "Inter", sans-serif;
   
@@ -277,4 +274,73 @@ h2 {
 
 .tipoDevJulio {
   text-align: center;
+}
+
+.sobre {
+  margin-top: 50px;
+}
+
+/* local das sections do site */
+
+.sobre-txt {
+  width: 90%;
+  text-align: center;
+  padding: 0 20px;
+  margin: auto;
+  margin-bottom: 20px;
+  color: var(--stroke-color);
+}
+
+.tecUsadas {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.container-slid {
+  width: 100%;
+  max-width: 700px;
+  overflow: hidden;
+  position: relative;
+  margin: auto;
+  margin-top: 70px;
+  margin-bottom: 70px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.slides {
+  display: flex;
+  gap: 40px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.img-cads {
+  width: 140px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.icon-tec {
+  width: 100px;
+  height: 100px;
+}
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.prev-btn {
+  left: -10px;
+}
+
+.next-btn {
+  right: -10px;
 }
