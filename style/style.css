@@ -349,3 +349,7 @@ section {
   right: -10px;
 }
 
+.preNext {
+  width: 90%;
+  position: relative;
+}
