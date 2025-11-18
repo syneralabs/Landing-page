@@ -282,6 +282,10 @@ h2 {
 
 /* local das sections do site */
 
+section {
+  position: relative;
+}
+
 .sobre-txt {
   width: 90%;
   text-align: center;
@@ -344,3 +348,4 @@ h2 {
 .next-btn {
   right: -10px;
 }
+
