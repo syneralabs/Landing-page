@@ -24,3 +24,15 @@ links.forEach(link => {
 menu.addEventListener("mouseleave", () => {
     laser.style.width = "0";
 });
+
+links.forEach(link => {
+    link.addEventListener("mouseenter", (e) => {
+        let {offsetLeft, offsetWidth} = e.target;
+        laser.style.left = offsetLeft + "px";
+        laser.style.width = offsetWidth + "px";
+    });
+});
+
+menu.addEventListener("mouseleave", () => {
+    laser.style.width = "0";
+});
