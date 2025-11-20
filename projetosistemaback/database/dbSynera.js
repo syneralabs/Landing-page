@@ -1,9 +1,19 @@
 // Conexão com SQLite - Synera Database
 import sqlite3 from "sqlite3";
+import path from "path";
+import { fileURLToPath } from "url";
+
+// Corrigindo __dirname em ES Modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Caminho correto do banco (na mesma pasta deste arquivo)
+const dbPath = path.join(__dirname, "dbSynera.db");
+
 sqlite3.verbose();
 
 // Criando/abrindo o arquivo do banco
-const db = new sqlite3.Database('./database/dbSynera.db', (err) => {
+const db = new sqlite3.Database(dbPath, (err) => {
     if (err) {
         console.error("Erro ao conectar ao banco:", err.message);
     } else {

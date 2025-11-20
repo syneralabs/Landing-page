@@ -1,11 +1,12 @@
 //criando rota para serviços
 
 import express from "express";
+import db from "../database/dbSynera.js";
+
 const router = express.Router();
-const bdSinera = require('../database/dbSynera.js');
 
 //criar serviços
-router.post('/criar', async (req, res) => {
+router.post('/criar', (req, res) => {
     const { nome, descricao, preco } = req.body;
     
     db.run(
