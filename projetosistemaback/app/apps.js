@@ -1,4 +1,5 @@
 // iniciar o servidor, configurar as rotas, permitir que o front se conecte, fazer o json  processar, fazer a pone com o bdSinera
+
 const express = require('express');
 const cors = require('cors');
 const app = express();
