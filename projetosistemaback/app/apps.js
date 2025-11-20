@@ -1,12 +1,11 @@
 // iniciar o servidor, configurar as rotas, permitir que o front se conecte, fazer o json  processar, fazer a pone com o bdSinera
-const express = require('express');
-const cors = require('cors');
-const app = express();
-const bdSinera = require('./bd/bdSinera');
+import express from 'express';
+import cors from 'cors';
+import db from "../database/dbSynera.js";
 
-const clientesRoutes = require('./routes/clientesRoutes');
-const servicosRoutes = require('./routes/servicosRoutes');
-const pagamentosRoutes = require('./routes/pagamentosRoutes');
+import clientesRoutes from "../routes/clientes.js";
+import servicosRoutes from "../routes/servicos.js";
+import pagamentosRoutes from "../routes/pagamentos.js"
 
 app.use(cors());
 app.use(express.json());

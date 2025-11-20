@@ -1,15 +1,15 @@
 //criando rota para clientes
+import bd from "../database/dbSynera.js";
+import express from "express";
 
-const express = require('express');
 const router = express.Router();
-const bdSinera = require('../../bd/bdSinera');
 
 //cadastrar cliente
 
 router.post('/cadastrar', async (req, res) => {
     const { nome, cpf, email, telefone } = req.body;
     try {
-        const resultado = await bdSinera.query(
+        const resultado = await bd.query(
             'INSERT INTO clientes (nome, cpf, email, telefone) VALUES (?, ?, ?, ?) RETURNING *',
             [nome, cpf, email, telefone]
         );
@@ -32,5 +32,4 @@ router.get('/listar', async (req, res) => {
     });
 });
 
-module.exports = router;
-
+export default router;
