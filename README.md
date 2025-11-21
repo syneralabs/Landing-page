@@ -17,9 +17,9 @@ O objetivo deste projeto é oferecer uma plataforma digital para apresentação 
 
 O escopo deste projeto abrange o desenvolvimento completo do site institucional da Synera Labs, incluindo: 
 
-- Criação de páginas web responsivas utilizando HTML, CSS, JavaScript e Angular. 
+- Criação de páginas web responsivas utilizando HTML, CSS, JavaScript. 
 
-- Implementação de integrações back-end em Java, Node.js, Python e C. 
+- Implementação de integrações back-end em Node.js
 
 - Estruturação de seções de serviços, portfólio e contato. 
 

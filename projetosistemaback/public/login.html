@@ -1,0 +1,30 @@
+//cria pagina de login 19/11/2025
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Página de Login /Synera Labs </title>
+    <link rel="stylesheet" href="styles.css" />
+
+    </head>
+<body>
+    <div class=" container login-container">
+        <h1>Login</h1>
+        <form action="/login" method="POST">
+            <label for="nome">Nome:</label>
+            <input id="nome" type="text" placeholder="Digite seu nome"/>
+
+            <label for="password">Senha:</label>
+            <input id="password" name="password" required />
+
+            <button type="submit">Entrar</button>
+      <p id="msgLogin" class="mensagem"></p>
+
+    <p>Ainda não é cadastrado? <a href="#" onclick="cadastrar()">Cadastre-se</a></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

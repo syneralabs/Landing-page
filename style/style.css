@@ -300,6 +300,13 @@ section {
   padding-bottom: 50px;
 }
 
+.carrossel {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+}
+
 .container-slid {
   width: 100%;
   max-width: 700px;
@@ -308,10 +315,10 @@ section {
   margin: auto;
   margin-top: 70px;
   margin-bottom: 70px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 0 20px;
 }
 
+/* Área dos cards */
 .slides {
   display: flex;
   gap: 40px;
@@ -320,36 +327,70 @@ section {
 
 .img-cads {
   width: 140px;
-  text-align: center;
   flex-shrink: 0;
+  text-align: center;
 }
 
 .icon-tec {
   width: 100px;
-  height: 100px;
 }
 
+/* Mobile: mostrar apenas 1 card */
+@media (max-width: 768px) {
+  .img-cads {
+    width: 100%;
+  }
+  .slides {
+    gap: 10px;
+  }
+}
+
+/* Botões laterais */
 .prev-btn,
 .next-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 40px;
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 999;
+  z-index: 99;
 }
 
 .prev-btn {
-  left: -10px;
+  left: 10px;
 }
 
 .next-btn {
-  right: -10px;
+  right: 10px;
 }
 
-.preNext {
-  width: 90%;
-  position: relative;
+.prev-btn img,
+.next-btn img {
+  width: 30px;
+}
+
+.project {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.slides2 {
+  height: 250px;
+  display: flex;
+  gap: 40px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.cards-projects {
+  width: 230px;
+  height: 190px;
+  padding: 15px;
+  background: #fff;
+  box-shadow:
+    0px 10px 20px rgba(0,0,0,0.10),
+    10px 20px 30px rgba(0,0,0,0.12),
+    20px 30px 40px rgba(0,0,0,0.14),
+    30px 40px 50px rgba(0,0,0,0.15);
+
 }

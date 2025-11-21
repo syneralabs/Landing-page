@@ -1,0 +1,33 @@
+<!-- criar paina de pagamento 19/11/2025-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Página de Pagamento /Synera Labs </title>
+    <link rel="stylesheet" href="styles.css" />
+
+    </head>
+<body>
+
+    <div class="container pagamento-container">
+        <h1>Pagamento</h1>
+
+        <select id="formaPagamento">
+            <option value="" disabled selected>Selecione a forma de pagamento</option>
+            <option value="cartaoCredito">Cartão de Crédito</option>
+            <option value="cartaoDebito">Cartão de Débito</option>
+            <option value="pix">PIX</option>
+           </select><select> 
+
+            <button onclick="processarPagamento()">Pagar Agora</button>
+            <p id="mensagemPagamento" class="mensagem"></p>
+
+                <button onclick="voltarParaServico()">Voltar</button>
+            </div>
+
+            <script src="pagamento.js"></script>
+            </body>
+            </html>
+            
