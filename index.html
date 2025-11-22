@@ -35,9 +35,9 @@
                 </button>
                 <ul class="esconder">
                     <li><a href="#content-herder" class="text-menu">Home</a></li>
-                    <li><a href="#" class="text-menu">Sobre Nós</a></li>
-                    <li><a href="#" class="text-menu">Serviços</a></li>
-                    <li><a href="#" class="text-menu">Contato</a></li>
+                    <li><a href="#cont1" class="text-menu">Sobre Nós</a></li>
+                    <li><a href="#cont2" class="text-menu">Serviços</a></li>
+                    <li><a href="#footer" class="text-menu">Contato</a></li>
                     <span class="laser"></span>
                 </ul>
             </nav>
@@ -86,7 +86,7 @@
     </header>
 
     <main>
-        <section class="container1">
+        <section class="container1" id="cont1">
             <h2 class="sobre">Sobre a Synera</h2>
             <p class="sobre-txt">
                 A Synera Labs é uma empresa de tecnologia especializada em  desenvolvimento de 
@@ -108,17 +108,18 @@
                 excelência digital
             </p>
         </section>
-        <section class="container2">
+        <section class="container2" id="cont2">
             <h2 class="tecUsadas">Tecnologias adotadas</h2>
-            
+
             <div class="carrossel">
 
                 <button class="prev-btn">
-                    <img src="./img/icon-prev.svg" alt="">
+                    <img src="./img/icon-prev.svg" alt="Anterior">
                 </button>
 
                 <div class="container-slid">
                     <div class="slides">
+
                         <div class="img-cads">
                             <img class="icon-tec" src="./img/icon-java.svg" alt="Java">
                             <p class="title-tec">Java</p>
@@ -142,16 +143,18 @@
                             <p class="title-tec">C</p>
                             <p class="desc">Desenvolvimento de Aplicações</p>
                         </div>
+
                     </div>
                 </div>
 
+        
                 <button class="next-btn">
-                    <img src="./img/icon-next.svg" alt="">
+                    <img src="./img/icon-next.svg" alt="Próximo">
                 </button>
 
             </div>
         </section>
-        <section class="container3">
+        <section class="container3" id="cont3">
             <h2 class="project">Nossos Projetos</h2>
 
             <div class="carrossel">
@@ -203,7 +206,27 @@
     </main>
 
     <footer>
-        
+        <div class="container-footer" id="footer">
+            <div class="column">
+                <div class="columns">
+                    <div class="Contato">
+                        <h3 class="titles-footer">Contato</h3>
+                        <a class="fot-links contato whatsapp" href="">(73) 99822-2893</a>
+                        <a class="fot-links contato Instagram" href="">syneralabs@gmail.com</a>
+                    </div>
+                    <div class="Sociais">
+                        <h3 class="titles-footer">Redes Sociais</h3>
+                        <a class="fot-links instagram" href="">Instagram</a>
+                    </div>
+                    <div class="Legal">
+                        <h3 class="titles-footer">Legal</h3>
+                        <a class="fot-links" href="">Termos</a>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script src="./script/script.js"></script>
