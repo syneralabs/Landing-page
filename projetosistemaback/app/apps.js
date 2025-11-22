@@ -1,9 +1,6 @@
 import express from 'express';
 import cors from 'cors';
 
-// Importando o banco
-import db from "../database/dbSynera.js";
-
 // Importando as rotas
 import clientesRoutes from "../routes/clientes.js";
 import servicosRoutes from "../routes/servicos.js";
