@@ -1,4 +1,5 @@
 import db from "../database/dbSynera.js";
+import express from "express";
 
 // Criar cliente
 export const criarCliente = (req, res) => {
