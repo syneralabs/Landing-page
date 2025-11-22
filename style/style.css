@@ -402,18 +402,13 @@ section {
     padding: 0 70px;  
   }
 
-.slides2 {
-  height: 250px;
-}
+  .slides2 {
+    gap: 10px;
+  }
 
-.cards-projects {
-  width: 230px;
-  height: 250px;
-  padding: 15px;
-  background: #fff;
-  box-shadow:
-    0px 10px 20px rgba(0,0,0,0.10),
-    10px 20px 30px rgba(0,0,0,0.12),
-    20px 30px 40px rgba(0,0,0,0.14),
-    30px 40px 50px rgba(0,0,0,0.15);
+  .cards-projects {
+    width: 100%;        
+    flex-shrink: 0;
+    text-align: center;
+  }
 }
