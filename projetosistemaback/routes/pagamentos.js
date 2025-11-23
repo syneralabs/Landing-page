@@ -4,7 +4,7 @@ import {
     listarPagamentos,
     editarPagamento,
     deletarPagamento
-} from "../controllers/pagamentosController.js";
+} from "../controllers/pagamentos.js";
 
 const router = express.Router();
 
