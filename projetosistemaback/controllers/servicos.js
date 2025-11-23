@@ -1,6 +1,5 @@
 import db from "../database/dbSynera.js";
 
-
 // Criar serviço
 export const criarServico = (req, res) => {
     const { nome, descricao, preco } = req.body;
