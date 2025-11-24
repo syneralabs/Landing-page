@@ -55,6 +55,10 @@ body{
     font-weight: normal;   
 }
 
+#menu {
+  height: 100em;
+}
+
 .Menu-fixed {
   width: 100%;
   height: 30px;
@@ -219,7 +223,7 @@ h2 {
   height: 139px;
 }
 
-/* Card Murilo */
+/* Create cards */
 
 .nomeMurilo{
   text-align: center;
@@ -456,6 +460,12 @@ section {
 @media (max-width: 768px) {
   .slides {
     gap: 10px;
+  }
+
+  .esconder {
+    height: 100%;
+    background-color: var(--primary-color);
+    padding: 30px;
   }
 
   .img-cads {
