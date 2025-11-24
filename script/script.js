@@ -23,26 +23,26 @@ button.addEventListener("click", () => {
     
 });
 
-links.forEach(link => {
+for(let link of links) {
     link.addEventListener("mouseenter", (e) => {
         let {offsetLeft, offsetWidth} = e.target;
         laser.style.left = offsetLeft + "px";
         laser.style.width = offsetWidth + "px";
     });
 
-});
+};
 
 menu.addEventListener("mouseleave", () => {
     laser.style.width = "0";
 });
 
-links.forEach(link => {
+for(let link of links) {
     link.addEventListener("mouseenter", (e) => {
         let {offsetLeft, offsetWidth} = e.target;
         laser.style.left = offsetLeft + "px";
         laser.style.width = offsetWidth + "px";
     });
-});
+}
 
 menu.addEventListener("mouseleave", () => {
     laser.style.width = "0";
@@ -62,7 +62,7 @@ function updateSlider() {
     }
 
     let cardWidth = imgCards[0].offsetWidth;
-    let gap = parseInt(window.getComputedStyle(slides).gap) || 16;
+    let gap = Number.parseFloat(globalThis.getComputedStyle(slides).gap) || 16;
     
     let move = cont * (cardWidth + gap);
     slides.style.transform = `translateX(-${move}px)`;
@@ -96,7 +96,7 @@ function updateSlider2() {
     }
 
     let cardWidth = cardsProject[0].offsetWidth;
-    let gap = parseInt(window.getComputedStyle(slides2).gap) || 16;
+    let gap = Number.parseFloat(globalThis.getComputedStyle(slides2).gap) || 16;
     
     let move = cont2 * (cardWidth + gap);
     slides2.style.transform = `translateX(-${move}px)`;
