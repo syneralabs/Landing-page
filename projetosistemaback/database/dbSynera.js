@@ -21,7 +21,8 @@ const db = new sqlite3.Database(dbPath, (err) => {
     }
 });
 
-db.serialize(() => {
+export function Createtables() {
+    db.serialize(() => {
     // Criar tabela de usuários
     db.run(`CREATE TABLE IF NOT EXISTS usuarios (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -58,6 +59,6 @@ db.serialize(() => {
         FOREIGN KEY(servico_id) REFERENCES servicos(id)
     )`);
 });
-
+}
 // Exportando corretamente
 export default db;
