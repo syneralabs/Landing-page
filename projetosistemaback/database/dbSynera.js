@@ -40,7 +40,7 @@ export function Createtables() {
         email TEXT UNIQUE
     )`);
 
-    // Criar tabela de serviços
+    // Criar tabela de serviços 
     db.run(`CREATE TABLE IF NOT EXISTS servicos (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         nome TEXT NOT NULL,
@@ -50,10 +50,13 @@ export function Createtables() {
 
     // Criar tabela de pagamentos
     db.run(`CREATE TABLE IF NOT EXISTS pagamentos (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        id INTEGER PRIMARY KEY AUTOINCREMENT,        
+        statusPagamento Integer, 
+        id_transacao_gateway int,
         cliente_id INTEGER,
         servico_id INTEGER,
         valor REAL NOT NULL,
+        metodoPagamento TEXT,
         data_pagamento TEXT NOT NULL,
         FOREIGN KEY(cliente_id) REFERENCES clientes(id),
         FOREIGN KEY(servico_id) REFERENCES servicos(id)
