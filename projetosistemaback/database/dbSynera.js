@@ -21,7 +21,8 @@ const db = new sqlite3.Database(dbPath, (err) => {
     }
 });
 
-db.serialize(() => {
+export function Createtables() {
+    db.serialize(() => {
     // Criar tabela de usuários
     db.run(`CREATE TABLE IF NOT EXISTS usuarios (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -39,7 +40,7 @@ db.serialize(() => {
         email TEXT UNIQUE
     )`);
 
-    // Criar tabela de serviços
+    // Criar tabela de serviços 
     db.run(`CREATE TABLE IF NOT EXISTS servicos (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         nome TEXT NOT NULL,
@@ -49,15 +50,18 @@ db.serialize(() => {
 
     // Criar tabela de pagamentos
     db.run(`CREATE TABLE IF NOT EXISTS pagamentos (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        id INTEGER PRIMARY KEY AUTOINCREMENT,        
+        statusPagamento Integer, 
+        id_transacao_gateway int,
         cliente_id INTEGER,
         servico_id INTEGER,
         valor REAL NOT NULL,
+        metodoPagamento TEXT,
         data_pagamento TEXT NOT NULL,
         FOREIGN KEY(cliente_id) REFERENCES clientes(id),
         FOREIGN KEY(servico_id) REFERENCES servicos(id)
     )`);
 });
-
+}
 // Exportando corretamente
 export default db;
