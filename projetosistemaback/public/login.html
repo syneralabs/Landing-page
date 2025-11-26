@@ -1,30 +1,108 @@
-//cria pagina de login 19/11/2025
-
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Página de Login /Synera Labs </title>
-    <link rel="stylesheet" href="../../style/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../style/style2.css">
 
-    </head>
+  <title>Login</title>
+</head>
 <body>
-    <div class=" container login-container">
-        <h1>Login</h1>
-        <form action="/login" method="POST">
-            <label for="nome">Nome:</label>
-            <input id="nome" type="text" placeholder="Digite seu nome"/>
+  <div class="container">
+    <div class="conrtent first-contente">
+      <div class="first-column">
+        <h2>Bem Vindo</h2>
+        <p>Para se manter conectado conosco</p>
+        <p>Por favor, faça login com suas informações pessoais.</p>
+        <button>sign in</button>
+      </div>
+      <div class="segund-column">
+        <h2>criar uma conta</h2>
+        <div class="social-midia">
+          <ul class="list-social-midia">
+            <a class="link-social-midia" href="#">
+              <li class="item-social-midia">
+                <i class="fab fa-facebook-f"></i>
+              </li>
+            </a>
+            <a class="link-social-midia" href="#">
+              <li class="item-social-midia">
+                <i class="fab fa-google-plus-g"></i>
+              </li>
+            </a>
+            <a class="link-social-midia" href="#">
+              <li class="item-social-midia">
+                <i class="fab fa-linkedin-in"></i>
+              </li>
+            </a>
+          </ul>
+        </div> <!-- social midia -->
+        <p class="description description-second">ou utilize seu e-mail para se cadastrar:</p>
+        <form class="form">
+          <label for="" class="label-input">
+            <i class="far far-user icon-modify"></i>
+            <input type="text" placeholder="Nome Completo">
+          </label>
+          <label for="" class="label-input">
+            <i class="far fa-envelope icon-modify"></i>
+            <input type="email" placeholder="E-mail">
+          </label>
+          <label for="" class="label-input">
+            <i class="fas fa-lock icon-modify"></i>
+            <input type="password" placeholder="Senha">
+          </label>
 
-            <label for="password">Senha:</label>
-            <input id="password" name="password" required />
+          <button class="btn btn-second">sign up</button>
 
-            <button type="submit">Entrar</button>
-      <p id="msgLogin" class="mensagem"></p>
+        </form>
+      </div> <!-- second column -->
+    </div> <!-- first contente -->
+    <div class="content second-content">
+      <div class="first-column">
+        <h2 class="title title-primary">olá amigo!</h2>
+        <p class="description description-primary">Insira seus dados pessoais</p>
+        <p class="description description-primary">e comece sua jornada conosco</p>
+        <button id="signup" class="btn btn-primary">sign up</button>
+      </div> <!-- first column -->
+      <div class="second-column">
+        <h2 class="title title-second">faça login no desenvolvedor</h2>
+        <div class="social-midia">
+          <ul>
+            <a class="link-social-media" href="">
+              <li class="item-social-media">
+                <i class="fab fa-facebook-f"></i>
+              </li>
+            </a>
+            <a class="link-social-media" href="">
+              <li class="item-social-media">
+                <i class="fab fa-google-plus-g"></i>
+              </li>
+            </a>
+            <a class="link-social-media" href="">
+              <li class="item-social-media">
+                <i class="fab fa-linkedin-in"></i>
+              </li>
+            </a>
+          </ul>
+        </div><!-- social midia -->
+        <p class="description description-second">ou utilize sua conta de e-mail:</p>
+        <form class="form">
+          <label for="" class="label-input">
+            <i class="far far-envelope icon-modify"></i>
+            <input type="text" placeholder="E-mail">
+          </label>
+          <label for="" class="label-input">
+            <i class="far far-envelope icon-modify"></i>
+            <input type="password" placeholder="Senha">
+          </label>
 
-    <p>Ainda não é cadastrado? <a href="#" onclick="cadastrar()">Cadastre-se</a></p>
+          <a href="" class="password">Esqueceu sua senha?</a>
+          <button class="btn btn-second">sign in</button>
+        </form>
+      </div><!-- second column -->
+    </div><!-- second contente -->
   </div>
 
-  <script src="script.js"></script>
+  <script src="../../script/script.js"></script>
 </body>
 </html>
