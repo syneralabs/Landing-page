@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap');
 * {
     margin: 0;
@@ -184,8 +185,6 @@ input:-webkit-autofill
     text-transform: capitalize;
 }
 
-
-
 .sign-in-js .first-content .first-column {
     z-index: -1;
 }
@@ -203,13 +202,13 @@ input:-webkit-autofill
     border-bottom-left-radius: 0;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-    animation: slidein 1.3s; /*MODIFIQUEI DE 3s PARA 1.3s*/
+    animation: slidein 0.3s; /*MODIFIQUEI DE 3s PARA 1.3s*/
 
     z-index: 12;
 }
 
 .sign-up-js .content::before {
-    animation: slideout 1.3s; /*MODIFIQUEI DE 3s PARA 1.3s*/
+    animation: slideout 0.3s; /*MODIFIQUEI DE 3s PARA 1.3s*/
 
     z-index: 12;
 }
@@ -230,15 +229,16 @@ input:-webkit-autofill
 
 /* DESLOCAMENTO CONTEÚDO ATRÁS DO CONTENT:BEFORE*/
 .sign-in-js .first-content .second-column {
+
     z-index: -1;
     position: relative;
-    animation: deslocamentoEsq 1.3s; /*MODIFIQUEI DE 3s PARA 1.3s*/
+    animation: deslocamentoEsq 0.3s; /*MODIFIQUEI DE 3s PARA 1.3s*/
 }
 
 .sign-up-js .second-content .second-column {
     position: relative;
     z-index: -1;
-    animation: deslocamentoDir 1.3s; /*MODIFIQUEI DE 3s PARA 1.3s*/
+    animation: deslocamentoDir 0.3s; /*MODIFIQUEI DE 3s PARA 1.3s*/
 }
 
 /*ANIMAÇÃOO CSS PARA O CONTEÚDO*/
