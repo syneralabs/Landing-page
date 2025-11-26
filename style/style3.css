@@ -176,16 +176,13 @@ ul li {
     padding-bottom: 16px;
 }
 
-li::before {
-    content: url(../assets/icon-verificado.svg);
-    padding-right: 10px;
+.left-espace {
+    padding-left: 5px;
 }
 
-li::after {
-    content: url(../assets/icon-info.svg);
-    padding-top: 5px;
-    position: absolute;
-    right: 0;
+li::before {
+    content: url(../img/icon-verificado.svg);
+    background-color: var(--gray-color);
 }
 
 .regular-icon6::after {
