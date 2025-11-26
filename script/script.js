@@ -11,7 +11,7 @@ let cardsProject = document.querySelectorAll(".cards-projects");
 let prev2 = document.querySelector(".prev");
 let next2 = document.querySelector(".next");
 let btnSignin = document.querySelector("#signin")
-let btnSignup = document.querySelector("signup")
+let btnSignup = document.querySelector("#signup")
 let body = document.querySelector("body")
 
 let cont = 0;
@@ -120,7 +120,13 @@ next2.addEventListener("click", () => {
     }
 });
 
+btnSignin.addEventListener("click", () => {
+    body.className = "sign-in-js";
+})
 
+btnSignup.addEventListener("click", () => {
+    body.className = "sign-up-js";
+})
 
 window.addEventListener("resize", updateSlider);
 window.addEventListener("resize", updateSlider2);

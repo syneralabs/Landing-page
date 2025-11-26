@@ -230,7 +230,6 @@ input:-webkit-autofill
 
 /* DESLOCAMENTO CONTEÚDO ATRÁS DO CONTENT:BEFORE*/
 .sign-in-js .first-content .second-column {
-
     z-index: -1;
     position: relative;
     animation: deslocamentoEsq 1.3s; /*MODIFIQUEI DE 3s PARA 1.3s*/
