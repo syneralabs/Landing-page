@@ -18,6 +18,10 @@ app.use('/clientes', clientesRoutes);
 app.use('/servicos', servicosRoutes);
 app.use('/pagamentos', pagamentosRoutes);
 
+import { Createtables } from '../database/dbSynera.js';
+
+Createtables();
+
 // Porta do servidor
 const Port = process.env.PORT || 3000;
 
