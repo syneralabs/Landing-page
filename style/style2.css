@@ -19,7 +19,7 @@ body {
     background-color: #fff;
     border-radius: 15px;
     width: 960px;
-    height: 50%;
+    height: 70%;
     justify-content: space-between;
     align-items: center;
     position: relative;
@@ -63,10 +63,10 @@ body {
     text-transform: uppercase;
     color: #fff;
     font-size: 10px;
-    padding: 10px 50px;
+    padding: 10px 40px;
     cursor: pointer;
     font-weight: bold;
-    width: 150px;
+    width: 170px;
     align-self: center;
     border: none;
     margin-top: 1rem;
