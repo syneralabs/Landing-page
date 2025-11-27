@@ -1,9 +1,14 @@
+import express from "express";
+import cors from "cors";
 
+const app = express();
+app.use(cors()); // <--- resolve o CORS
+app.use(express.json());
 
-var btnSignin = document.querySelector("#signin");
-var btnSignup = document.querySelector("#signup");
+let btnSignin = document.querySelector("#signin");
+let btnSignup = document.querySelector("#signup");
 
-var body = document.querySelector("body");
+let body = document.querySelector("body");
 
 
 btnSignin.addEventListener("click", function () {
@@ -12,4 +17,4 @@ btnSignin.addEventListener("click", function () {
 
 btnSignup.addEventListener("click", function () {
     body.className = "sign-up-js";
-})
+});

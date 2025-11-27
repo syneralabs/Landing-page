@@ -41,20 +41,20 @@
                     </ul>
                 </div><!-- social media -->
                 <p class="description description-second">ou utilize seu e-mail para se cadastrar:</p>
-                <form class="form">
-                    <label class="label-input" for="">
+                <form id="cadastroForm" method="POST" class="form">
+                    <label class="label-input" for="nomeCompleto">
                         <i class="far fa-user icon-modify"></i>
-                        <input type="text" placeholder="Name">
+                        <input type="text" placeholder="Name" name="nomeCompleto" required>
                     </label>
                     
-                    <label class="label-input" for="">
+                    <label class="label-input" for="email">
                         <i class="far fa-envelope icon-modify"></i>
-                        <input type="email" placeholder="Email">
+                        <input type="email" placeholder="Email" name="email" required>
                     </label>
                     
-                    <label class="label-input" for="">
+                    <label class="label-input" for="password">
                         <i class="fas fa-lock icon-modify"></i>
-                        <input type="password" placeholder="Password">
+                        <input type="password" placeholder="Password" name="password" required>
                     </label>
                     
                     
@@ -91,16 +91,16 @@
                     </ul>
                 </div><!-- social media -->
                 <p class="description description-second">ou utilize sua conta de e-mail:</p>
-                <form class="form">
+                <form action="http://localhost:3000/login" id="loginForm" method="POST" class="form">
                 
-                    <label class="label-input" for="">
+                    <label class="label-input" for="email">
                         <i class="far fa-envelope icon-modify"></i>
-                        <input type="email" placeholder="Email">
+                        <input type="email" placeholder="Email" name="email" required>
                     </label>
                 
-                    <label class="label-input" for="">
+                    <label class="label-input" for="password">
                         <i class="fas fa-lock icon-modify"></i>
-                        <input type="password" placeholder="Password">
+                        <input type="password" placeholder="Password" name="password" required>
                     </label>
                 
                     <a class="password" href="#">Esqueceu sua senha?</a>

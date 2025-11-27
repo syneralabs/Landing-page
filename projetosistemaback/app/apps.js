@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import db from "../database/dbSynera.js";
 
 // Importando as rotas
 import clientesRoutes from "../routes/clientes.js";
@@ -12,15 +13,14 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Rotas
 app.use('/clientes', clientesRoutes);
 app.use('/servicos', servicosRoutes);
 app.use('/pagamentos', pagamentosRoutes);
 
-import { Createtables } from '../database/dbSynera.js';
 
-Createtables();
 
 // Porta do servidor
 const Port = process.env.PORT || 3000;
