@@ -57,8 +57,6 @@ document.getElementById("loginForm").addEventListener("submit", async function (
 
         if (response.ok) {
             alert("Login realizado!");
-            // redireciona se quiser
-            // window.location.href = "/dashboard.html";
         } else {
             alert("Erro: " + result.error);
         }
