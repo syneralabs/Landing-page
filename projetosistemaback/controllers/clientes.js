@@ -2,11 +2,11 @@ import db from "../database/dbSynera.js";
 
 // Criar cliente
 export const criarCliente = (req, res) => {
-    const { nome, cpf, email, telefone } = req.body;
+    const { nome, cpf, email, telefone, senha } = req.body;
 
-    const sql = `INSERT INTO clientes (nome, cpf, email, telefone) VALUES (?, ?, ?, ?)`;
+    const sql = `INSERT INTO clientes (nome, cpf, email, telefone, senha) VALUES (?, ?, ?, ?)`;
 
-    db.run(sql, [nome, cpf, email, telefone], function (err) {
+    db.run(sql, [nome, cpf, email, telefone, senha], function (err) {
         if (err) {
             return res.status(500).json({ error: "Erro ao cadastrar cliente", detalhes: err });
         }

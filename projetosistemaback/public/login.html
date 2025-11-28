@@ -41,10 +41,10 @@
                     </ul>
                 </div><!-- social media -->
                 <p class="description description-second">ou utilize seu e-mail para se cadastrar:</p>
-                <form id="cadastroForm" method="POST" class="form">
-                    <label class="label-input" for="nomeCompleto">
+                <form action="" id="cadastroForm" method="POST" class="form">
+                    <label class="label-input" for="nome">
                         <i class="far fa-user icon-modify"></i>
-                        <input type="text" placeholder="Name" name="nomeCompleto" required>
+                        <input type="text" placeholder="Name" name="nome" required>
                     </label>
                     
                     <label class="label-input" for="email">
@@ -58,7 +58,7 @@
                     </label>
                     
                     
-                    <button class="btn btn-second">inscrever-se</button>        
+                    <button type="submit" class="btn btn-second">inscrever-se</button>        
                 </form>
             </div><!-- second column -->
         </div><!-- first content -->
@@ -91,20 +91,20 @@
                     </ul>
                 </div><!-- social media -->
                 <p class="description description-second">ou utilize sua conta de e-mail:</p>
-                <form action="http://localhost:3000/login" id="loginForm" method="POST" class="form">
+                <form action="" id="loginForm" method="POST" class="form">
                 
                     <label class="label-input" for="email">
                         <i class="far fa-envelope icon-modify"></i>
-                        <input type="email" placeholder="Email" name="email" required>
+                        <input type="email" placeholder="Email" name="email" id="email" required>
                     </label>
                 
                     <label class="label-input" for="password">
                         <i class="fas fa-lock icon-modify"></i>
-                        <input type="password" placeholder="Password" name="password" required>
+                        <input type="password" placeholder="Password" name="password" id="password" required>
                     </label>
                 
                     <a class="password" href="#">Esqueceu sua senha?</a>
-                    <button class="btn btn-second">entrar</button>
+                    <button type="submit" class="btn btn-second">entrar</button>
                 </form>
             </div><!-- second column -->
         </div><!-- second-content -->

@@ -1,26 +1,25 @@
 import express from 'express';
 import cors from 'cors';
-import db from "../database/dbSynera.js";
 
 // Importando as rotas
 import clientesRoutes from "../routes/clientes.js";
 import servicosRoutes from "../routes/servicos.js";
 import pagamentosRoutes from "../routes/pagamentos.js";
-import { criarCliente } from '../controllers/clientes.js';
 
 // Inicializando o Express
 const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 // Rotas
 app.use('/clientes', clientesRoutes);
 app.use('/servicos', servicosRoutes);
 app.use('/pagamentos', pagamentosRoutes);
 
+import { Createtables } from '../database/dbSynera.js';
 
+Createtables();
 
 // Porta do servidor
 const Port = process.env.PORT || 3000;
@@ -28,3 +27,4 @@ const Port = process.env.PORT || 3000;
 app.listen(Port, () => {
     console.log(`Servidor rodando na porta ${Port}`);
 });
+
