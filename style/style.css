@@ -159,6 +159,8 @@ body{
 
 ul li{ 
   list-style: none;
+  display: inline-block;
+  padding-right: 15px;
 }
 
 ul li a {
@@ -168,9 +170,18 @@ ul li a {
     
 }
 
+#menu {
+  display: block;
+}
+
+#button {
+  display: none;
+}
+
+
 
 .esconder{
-    display: none;
+    display: block;
 }
 
 .mostra {
@@ -469,6 +480,24 @@ section {
 
   #menu:has {
     height: 20em;
+  }
+
+  #button {
+    display: block;
+  }
+
+  ul li{ 
+    list-style: none;
+    display: block;
+    padding-right: 0;
+  }
+
+  .esconder{
+    display: none;
+  }
+
+  .mostra {
+    display: block;
   }
 
   .esconder {
