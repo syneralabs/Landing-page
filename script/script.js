@@ -36,18 +36,6 @@ menu.addEventListener("mouseleave", () => {
     laser.style.width = "0";
 });
 
-for(let link of links) {
-    link.addEventListener("mouseenter", (e) => {
-        let {offsetLeft, offsetWidth} = e.target;
-        laser.style.left = offsetLeft + "px";
-        laser.style.width = offsetWidth + "px";
-    });
-}
-
-menu.addEventListener("mouseleave", () => {
-    laser.style.width = "0";
-});
-
 function updateSlider() {
     const screenWidth = window.innerWidth;
     let setVisibleCards = screenWidth <= 768 ? 1 : 4;

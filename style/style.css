@@ -190,6 +190,16 @@ ul li a {
   color: var(--stroke-color);
 }
 
+.laser {
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  width: 0;
+  background: var(--logo-color);
+  box-shadow: 0 0 10px var(--logo-color), 0 0 20px var(--logo-color);
+  transition: 0.25s ease;
+}
+
 /* H2 com titulo do herder */
 
 h2 {
@@ -492,16 +502,17 @@ section {
 
   .esconder{
     display: none;
+    height: 100%;
+    background-color: var(--primary-color);
+    padding: 30px;
   }
 
   .mostra {
     display: block;
   }
 
-  .esconder {
-    height: 100%;
-    background-color: var(--primary-color);
-    padding: 30px;
+  .laser {
+    display: none;
   }
 
   .img-cads {
