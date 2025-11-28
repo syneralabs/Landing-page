@@ -51,7 +51,7 @@ export function Createtables() {
 
     // Criar tabela de pagamentos
     db.run(`CREATE TABLE IF NOT EXISTS pagamentos (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,        
+        id INTEGER PRIMARY KEY AUTOINCREMENT,       
         statusPagamento INTERGER, 
         id_transacao_gateway INTERGER,
         cliente_id INTEGER,
