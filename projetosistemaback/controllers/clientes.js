@@ -8,6 +8,14 @@ export const criarCliente = (req, res) => {
 
     db.run(sql, [nome, cpf, email, telefone, senha], function (err) {
         if (err) {
+            if (err.message.includes("UNIQUE constraint failed: clientes.cpf")) {
+                return res.status(400).json({ error: "CPF já cadastrado" });
+            }
+
+            if (err.message.includes("UNIQUE constraint failed: clientes.email")) {
+                return res.status(400).json({ error: "E-mail já cadastrado" });
+            }
+
             return res.status(500).json({ error: "Erro ao cadastrar cliente", detalhes: err });
         }
 
