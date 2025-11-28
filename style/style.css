@@ -283,10 +283,13 @@ h2 {
 
 /* local das sections do site */
 
+<<<<<<< Updated upstream
 section {
   position: relative;
 }
 
+=======
+>>>>>>> Stashed changes
 .sobre-txt {
   width: 90%;
   text-align: center;
@@ -301,6 +304,7 @@ section {
   padding-bottom: 50px;
 }
 
+<<<<<<< Updated upstream
 .carrossel {
   position: relative;
   width: 100%;
@@ -314,30 +318,58 @@ section {
   max-width: 700px;
   margin: 70px auto;
   padding: 0 20px;
+=======
+.container-slid {
+  width: 100%;
+  max-width: 700px;
+  overflow: hidden;
+  position: relative;
+  margin: auto;
+  margin-top: 70px;
+  margin-bottom: 70px;
+  padding-left: 20px;
+  padding-right: 20px;
+>>>>>>> Stashed changes
 }
 
 .slides {
   display: flex;
   gap: 40px;
+<<<<<<< Updated upstream
   transition: transform 0.4s ease;
+=======
+  transition: transform 0.5s ease-in-out;
+>>>>>>> Stashed changes
 }
 
 .img-cads {
   width: 140px;
+<<<<<<< Updated upstream
   flex-shrink: 0;
   text-align: center;
+=======
+  text-align: center;
+  flex-shrink: 0;
+>>>>>>> Stashed changes
 }
 
 .icon-tec {
   width: 100px;
+<<<<<<< Updated upstream
 }
 
 /* BOTÕES LATERAIS */
+=======
+  height: 100px;
+}
+
+>>>>>>> Stashed changes
 .prev-btn,
 .next-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+<<<<<<< Updated upstream
   border: none;
   background: none;
   cursor: pointer;
@@ -508,4 +540,19 @@ section {
   .titles-footer {
     padding: 15px 0px 15px 0px;
   }
+=======
+  font-size: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.prev-btn {
+  left: -10px;
+}
+
+.next-btn {
+  right: -10px;
+>>>>>>> Stashed changes
 }

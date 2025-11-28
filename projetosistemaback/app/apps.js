@@ -5,7 +5,6 @@ import cors from 'cors';
 import clientesRoutes from "../routes/clientes.js";
 import servicosRoutes from "../routes/servicos.js";
 import pagamentosRoutes from "../routes/pagamentos.js";
-import { criarCliente } from '../controllers/clientes.js';
 
 import express from 'express';
 import cors from 'cors';

@@ -1,12 +1,21 @@
 @media screen and (min-width: 768px) {
+<<<<<<< Updated upstream
    #button {
         display: none;
     }  
 
+=======
+    
+    .button {
+        display: none;
+    }
+    
+>>>>>>> Stashed changes
     .esconder {
         display: block;
     }
 
+<<<<<<< Updated upstream
     ul li {
         display: inline-block;
     }
@@ -36,4 +45,23 @@
         transition: all 0.3s ease;
     }
 
+=======
+    .text-menu {
+        display: inline-block;
+    }
+    
+    .container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .header, .footer {
+        text-align: center;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+    }
+    
+>>>>>>> Stashed changes
 }

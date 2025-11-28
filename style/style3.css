@@ -1,0 +1,247 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-letras: #0E2C59;
+    --primary-color: #D9D9D9;
+    --backgound-color-clumn: #009DFF;
+    --second-color: #58af9b;
+    --terceiro-color: #ecf0f1;
+    --light-color: #fff;
+    --gray-color: #bdc3c7;
+    --gray2-color: #95a5a6;
+    --border-radius: 15px;
+    --color-p: #000;
+    
+}
+
+body {
+    font-family: 'Titillium Web', sans-serif;
+    background-color: var(--primary-color);
+    color: var(--light-color);
+}
+
+.card-group {
+    display: flex;
+    width: 1216px;
+    margin: 100px auto;
+    gap: 32px;
+}
+
+.container0 {
+    display: inline-block;
+    width: 384px;
+    padding: 48px 32px 32px;
+    border-radius: 10px;
+    color: var(--color-p);
+}
+
+.container1 {
+    display: inline-block;
+    width: 384px;
+    padding: 48px 32px 32px;
+    background-color: var(--backgound-color-clumn);
+    border-radius: 10px;
+}
+
+.container2 {
+    display: inline-block;
+    width: 384px;
+    padding: 48px 32px 32px;
+    border-radius: 10px;
+    color: var(--color-p);
+}
+
+.container0:hover {
+    border: 1px solid var(--second-color);
+}
+
+.container2:hover {
+    border: 1px solid var(--second-color);
+}
+
+.card {
+    width: 320px;
+    margin: auto;
+}
+
+.planos {
+    position: relative;
+    width: 100%;
+}
+
+h2 {
+    display: inline-block;
+    text-align: left;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: bold;
+    font-size: 32px;
+    padding-bottom: 20px;
+}
+
+.titulo0 {
+    color: #1E293B;
+} 
+
+span {
+    text-align: right;
+    font-size: 18px;
+    padding-left: 50px;
+}
+
+.notamate {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    display: inline-block;
+    padding: 0;
+    color: #1E293B;
+} 
+
+.valor {
+    padding: 0;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    color: #F8FAFC;
+}
+
+.valor1 {
+    padding: 0;
+    font-family: 'Titillium Web', sans-serif;
+    color: #1E293B;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+p {
+    text-align: left;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--color-letras);
+}
+
+.subTitulo {
+    color: #7C3AED;
+} 
+
+button {
+    width: 100%;
+    padding: 16px 24px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: var(--gray2-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: var(--second-color);
+}
+
+.button0 {
+    background-color: var(--backgound-color-clumn);
+    border: 1px solid var(--color-letras);
+    font-weight: bold;
+    font-size: 16px;
+    color: var(--color-letras);
+    
+}
+
+.button0:hover {
+    background-color: var(--color-letras);
+    color: white;
+}
+
+ul {
+    width: 320px;
+    margin-top: 32px;
+}
+
+ul li {
+    position: relative;
+    width: 320px;
+    list-style: none;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    padding-bottom: 16px;
+}
+
+.left-espace {
+    padding-left: 5px;
+}
+
+li::before {
+    content: url(../img/icon-verificado.svg);
+    background-color: var(--gray-color);
+}
+
+.regular-icon6::after {
+    content: '';
+}
+
+@media (max-width: 500px) {
+
+    body {
+        width: 100%;
+    }
+    
+    .card-group {
+        width: 320px;
+        display: block;
+        margin: auto;
+        margin-top: 80px;
+        margin-bottom: 80px;
+        gap: 0;
+    }
+
+    .container0 {
+        display: block;
+        width: 320px;
+        padding: 0;
+    }
+
+    .container1 {
+        display: block;
+        width: 320px;
+        padding: 0;
+    }
+
+    .container2 {
+        display: block;
+        width: 320px;
+        padding: 0;
+    }
+
+    .card {
+        width: 272px;
+        margin-top: 24px;
+    }
+
+    p {
+        padding-top: 24px;
+    }
+
+    span {
+        text-align: left;
+        padding: 15px;
+    }
+
+    ul {
+        width: 272px;
+    }
+
+    ul li {
+        width: 272px;
+    }
+}
+

@@ -37,7 +37,8 @@ export function Createtables() {
         nome TEXT NOT NULL,
         cpf TEXT NOT NULL UNIQUE,
         telefone TEXT,
-        email TEXT UNIQUE
+        email TEXT UNIQUE,
+        senha TEXT NOT NULL
     )`);
 
     // Criar tabela de serviços 

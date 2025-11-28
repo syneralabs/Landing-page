@@ -1,3 +1,2 @@
-import { Createtables } from '../database/dbSynera.js';
-
-// Createtables();
+import { Createtables } from "../database/dbSynera.js";
+Createtables();
