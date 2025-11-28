@@ -41,22 +41,15 @@
     precoEl.textContent = preco && preco !== '0' ? `Preço: R$ ${preco}` : 'Preço: Sob consulta';
 
     function confirmarServico() {
-      // exemplo simples: salvar em localStorage (pode chamar no backend)
-      const pedido = {
-        nome: nomeEl.textContent,
-        descricao: descEl.textContent,
-        preco: precoEl.textContent,
-        data: new Date().toISOString()
-      };
+      // Redireciona para pagamento.html com parâmetros do serviço
+      const nomeServico = nomeEl.textContent;
+      const precoServico = precoEl.textContent.replace("Preço: R$ ", "").replace("Preço: ", "");
 
-      // salva pedido localmente — você pode substituir por chamada fetch() para o backend
-      const pedidos = JSON.parse(localStorage.getItem('pedidos') || '[]');
-      pedidos.push(pedido);
-      localStorage.setItem('pedidos', JSON.stringify(pedidos));
+      const params = new URLSearchParams();
+      params.set("nome", nomeServico);
+      params.set("preco", precoServico);
 
-      alert('Serviço confirmado!\nObrigado — iremos entrar em contato.');
-      // redireciona para página inicial (ajustar se quiser outra rota)
-      window.location.href = 'index.html';
+      window.location.href = "pagamento.html?" + params.toString();
     }
 
     function voltarMenu() {
