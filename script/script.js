@@ -3,6 +3,7 @@ let menu = document.querySelector(".esconder");
 let laser = document.querySelector(".laser");
 let links = document.querySelectorAll(".esconder a");
 let slides = document.querySelector(".slides");
+<<<<<<< Updated upstream
 let imgCards = document.querySelectorAll(".img-cads");
 let prev = document.querySelector(".prev-btn");
 let next = document.querySelector(".next-btn");
@@ -13,6 +14,14 @@ let next2 = document.querySelector(".next");
 
 let cont = 0;
 let cont2 = 0;
+=======
+let slidCards = document.querySelectorAll(".img-cads");
+let prevBtn = document.querySelector(".prev-btn");
+let nextBtn = document.querySelector(".next-btn");
+
+let currentSlide = 0;
+const totalSlides = slidCards.length;
+>>>>>>> Stashed changes
 
 button.addEventListener("click", () => {
     if(menu.classList.contains("esconder")){
@@ -36,6 +45,7 @@ menu.addEventListener("mouseleave", () => {
     laser.style.width = "0";
 });
 
+<<<<<<< Updated upstream
 for(let link of links) {
     link.addEventListener("mouseenter", (e) => {
         let {offsetLeft, offsetWidth} = e.target;
@@ -122,3 +132,25 @@ window.addEventListener("resize", updateSlider2);
 
 updateSlider();
 updateSlider2();
+=======
+let cardWidth = cards[0].offsetWidth + 40;
+
+function updateCarrossel() {
+    slideTrack.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
+}
+
+nextBtn.addEventListener("click", () => {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateCarrossel();
+});
+
+prevBtn.addEventListener("click", () => {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateCarrossel();
+});
+
+setInterval(() => {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateCarrossel();
+}, 5000);
+>>>>>>> Stashed changes
