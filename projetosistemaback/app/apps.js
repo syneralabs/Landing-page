@@ -7,18 +7,29 @@ import servicosRoutes from "../routes/servicos.js";
 import pagamentosRoutes from "../routes/pagamentos.js";
 import { criarCliente } from '../controllers/clientes.js';
 
+import express from 'express';
+import cors from 'cors';
+
+// rotas
+import clientesRoutes from './routes/clientesRoutes.js';
+import servicosRoutes from './routes/servicosRoutes.js';
+import pagamentosRoutes from './routes/pagamentosRoutes.js';
+
+import { Createtables } from '../database/dbSynera.js';
+
 // Inicializando o Express
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-// Rotas
+//  Permitir acesso aos arquivos do front-end (HTML, CSS, JS)
+app.use(express.static('public'));
+
+// Rotas da API
 app.use('/clientes', clientesRoutes);
 app.use('/servicos', servicosRoutes);
 app.use('/pagamentos', pagamentosRoutes);
-
-import { Createtables } from '../database/dbSynera.js';
 
 Createtables();
 
@@ -28,3 +39,4 @@ const Port = process.env.PORT || 3000;
 app.listen(Port, () => {
     console.log(`Servidor rodando na porta ${Port}`);
 });
+

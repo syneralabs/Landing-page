@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Serviços | Synera Labs</title>
+  <link rel="stylesheet" href="../../style/services.css" />
+</head>
+<body>
+  <header class="service-header">
+    <h1>Nossos Serviços</h1>
+    <p>Escolha o serviço e veja os detalhes.</p>
+  </header>
+
+  <main class="services-container">
+
+    <div class="service-card" onclick="abrirDetalhes('Desenvolvimento de Sistemas','Soluções completas e personalizadas para empresas de todos os portes.','2500')">
+      <h2>Desenvolvimento de Sistemas</h2>
+      <p>Soluções completas e personalizadas (web / desktop / back-end).</p>
+      <span class="price">A partir de R$ 2.500</span>
+    </div>
+
+    <div class="service-card" onclick="abrirDetalhes('Websites Profissionais','Sites modernos, responsivos e otimizados para SEO.','1200')">
+      <h2>Websites Profissionais</h2>
+      <p>Landing pages, sites institucionais e e-commerce.</p>
+      <span class="price">A partir de R$ 1.200</span>
+    </div>
+
+    <div class="service-card" onclick="abrirDetalhes('Aplicativos Mobile','Aplicativos para Android e iOS com UX otimizada.','3000')">
+      <h2>Aplicativos Mobile</h2>
+      <p>Apps nativos e híbridos com integração a APIs.</p>
+      <span class="price">A partir de R$ 3.000</span>
+    </div>
+
+    <div class="service-card" onclick="abrirDetalhes('Integração de Sistemas / API','Integrações, automações e APIs seguras.','0')">
+      <h2>Integração / APIs</h2>
+      <p>Conexões entre sistemas, microserviços e automações.</p>
+      <span class="price">Sob consulta</span>
+    </div>
+
+    <div class="service-card" onclick="abrirDetalhes('UX / UI Design','Pesquisas, wireframes e protótipos focados no usuário.','900')">
+      <h2>UX / UI Design</h2>
+      <p>Prototipagem, testes de usabilidade e design responsivo.</p>
+      <span class="price">A partir de R$ 900</span>
+    </div>
+
+    <div class="service-card" onclick="abrirDetalhes('Manutenção & Suporte','Pacotes de suporte mensal, correções e atualizações.','0')">
+      <h2>Manutenção & Suporte</h2>
+      <p>Suporte técnico, patches e melhorias contínuas.</p>
+      <span class="price">Mensalidade sob consulta</span>
+    </div>
+
+  </main>
+
+<script>
+  function abrirDetalhes(nome, descricao, preco) {
+    // Preferência: usar URL para compatibilidade entre hosts
+    const params = new URLSearchParams();
+    params.set('nome', nome);
+    params.set('descricao', descricao);
+    params.set('preco', preco);
+    // redireciona para servico.html com parâmetros de query
+    window.location.href = 'servico.html?' + params.toString();
+  }
+</script>
+</body>
+</html>

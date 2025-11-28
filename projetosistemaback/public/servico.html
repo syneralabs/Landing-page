@@ -1,23 +1,73 @@
-<!-- criar as descriçoes de serviços-->
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Serviço | Sistema de Serviços Synera Labs</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Serviço | Synera Labs</title>
+  <link rel="stylesheet" href="./style/style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1 id="servicoNome"></h1>
-    <p id="servicoDescricao"></p>
-    <p id="servicoPreco"></p>
+  <div class="container" style="max-width:900px;margin:48px auto;padding:24px;">
+    <h1 id="servicoNome">Carregando...</h1>
+    <p id="servicoDescricao" style="margin-top:12px;color:#333;"></p>
+    <p id="servicoPreco" style="margin-top:8px;font-weight:600;"></p>
 
-    <button onclick="confirmarServico()">Confirmar Serviço</button>
-    <button onclick="voltarMenu()">Voltar</button>
+    <div style="margin-top:20px; display:flex; gap:12px;">
+      <button onclick="confirmarServico()" style="padding:10px 14px;border-radius:8px;background:#00a6ff;color:#fff;border:none;cursor:pointer;">Confirmar Serviço</button>
+      <button onclick="voltarMenu()" style="padding:10px 14px;border-radius:8px;background:#f0f0f0;color:#333;border:none;cursor:pointer;">Voltar</button>
+    </div>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    // lê query string
+    const qs = new URLSearchParams(window.location.search);
+
+    // tenta ler da query; se não existir, tenta localStorage
+    const nome = qs.get('nome') || localStorage.getItem('nome') || null;
+    const descricao = qs.get('descricao') || localStorage.getItem('descricao') || null;
+    const preco = qs.get('preco') || localStorage.getItem('preco') || null;
+
+    const nomeEl = document.getElementById('servicoNome');
+    const descEl = document.getElementById('servicoDescricao');
+    const precoEl = document.getElementById('servicoPreco');
+
+    if (nome) {
+      nomeEl.textContent = nome;
+    } else {
+      nomeEl.textContent = 'Serviço não encontrado';
+    }
+
+    descEl.textContent = descricao ? descricao : 'Descrição não disponível.';
+    precoEl.textContent = preco && preco !== '0' ? `Preço: R$ ${preco}` : 'Preço: Sob consulta';
+
+    function confirmarServico() {
+      // exemplo simples: salvar em localStorage (pode chamar no backend)
+      const pedido = {
+        nome: nomeEl.textContent,
+        descricao: descEl.textContent,
+        preco: precoEl.textContent,
+        data: new Date().toISOString()
+      };
+
+      // salva pedido localmente — você pode substituir por chamada fetch() para o backend
+      const pedidos = JSON.parse(localStorage.getItem('pedidos') || '[]');
+      pedidos.push(pedido);
+      localStorage.setItem('pedidos', JSON.stringify(pedidos));
+
+      alert('Serviço confirmado!\nObrigado — iremos entrar em contato.');
+      // redireciona para página inicial (ajustar se quiser outra rota)
+      window.location.href = 'index.html';
+    }
+
+    function voltarMenu() {
+      // volta para onde o usuário veio (serviços)
+      if (document.referrer && document.referrer.includes('services.html')) {
+        window.location.href = 'services.html';
+      } else {
+        window.history.back();
+      }
+    }
+  </script>
 </body>
 </html>
+
