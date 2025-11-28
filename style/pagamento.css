@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg,#0e2c59,#0070b6);
+  color: #fff;
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+/* header */
+.service-header { text-align:center; padding:56px 20px; }
+.service-header h1 { font-size:34px; font-weight:700; }
+.service-header p { margin-top:8px; opacity:0.9; }
+
+/* container */
+.services-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px 18px;
+  display: grid;
+  gap: 22px;
+}
+
+/* card */
+.service-card {
+  background: rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.16);
+  padding:20px;
+  border-radius:12px;
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.service-card:hover { transform: translateY(-6px); box-shadow:0 12px 28px rgba(0,0,0,0.28); }
+
+.service-card h2 { font-size:18px; margin-bottom:8px; }
+.service-card p { font-size:14px; opacity:0.95; margin-bottom:12px; }
+.service-card h3 { font-size:16px; margin:16px 0 8px; }
+
+/* formas de pagamento */
+.formas-pagamento {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.formas-pagamento label {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.campos-pagamento label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.campos-pagamento input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-top: 4px;
+}
+
+.btn-service {
+  display: inline-block;
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  background:#00a6ff;
+  color:#fff;
+  font-weight:600;
+  border:none;
+  cursor:pointer;
+  text-align:center;
+}
+
+.btn-service:hover {
+  background:#007acc;
+}
+
+/* responsivo */
+@media (max-width:720px){
+  .service-header h1 { font-size:28px; }
+  .services-container { padding:18px; gap:14px; }
+}

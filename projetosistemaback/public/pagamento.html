@@ -3,31 +3,91 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Página de Pagamento /Synera Labs </title>
-    <link rel="stylesheet" href="styles.css" />
-
-    </head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pagamento | Synera Labs</title>
+  <link rel="stylesheet" href="./style/pagamento.css" />
+</head>
 <body>
+  <div class="pagamento-container">
+    <h1>Pagamento do Serviço</h1>
 
-    <div class="container pagamento-container">
-        <h1>Pagamento</h1>
+    <div class="detalhes-servico">
+      <p><strong>Serviço:</strong> <span id="nomeServico">Carregando...</span></p>
+      <p><strong>Preço:</strong> <span id="precoServico">Carregando...</span></p>
+    </div>
 
-        <select id="formaPagamento">
-            <option value="" disabled selected>Selecione a forma de pagamento</option>
-            <option value="cartaoCredito">Cartão de Crédito</option>
-            <option value="cartaoDebito">Cartão de Débito</option>
-            <option value="pix">PIX</option>
-            
+    <h2>Escolha a forma de pagamento:</h2>
+    <div class="formas-pagamento">
+      <label>
+        <input type="radio" name="pagamento" value="pix" checked />
+        PIX
+      </label>
+      <label>
+        <input type="radio" name="pagamento" value="debito" />
+        Cartão de Débito
+      </label>
+      <label>
+        <input type="radio" name="pagamento" value="credito" />
+        Cartão de Crédito
+      </label>
+    </div>
 
-            <button onclick="processarPagamento()">Pagar Agora</button>
-            <p id="mensagemPagamento" class="mensagem"></p>
+    <div class="campos-pagamento">
+      <!-- Campos extras serão mostrados dependendo da forma de pagamento -->
+    </div>
 
-                <button onclick="voltarParaServico()">Voltar</button>
-            </div>
+    <button id="finalizarPagamento">Finalizar Pagamento</button>
+  </div>
 
-            <script src="pagamento.js"></script>
+  <script>
+    // Lê parâmetros da query string
+    const qs = new URLSearchParams(window.location.search);
+    const nome = qs.get("nome") || "Serviço não encontrado";
+    const preco = qs.get("preco") || "Sob consulta";
+
+    document.getElementById("nomeServico").textContent = nome;
+    document.getElementById("precoServico").textContent = preco;
+
+    const formas = document.getElementsByName("pagamento");
+    const campos = document.querySelector(".campos-pagamento");
+
+    function atualizarCampos() {
+      const selecionado = document.querySelector('input[name="pagamento"]:checked').value;
+      campos.innerHTML = ""; // limpa campos
+
+      if(selecionado === "pix") {
+        campos.innerHTML = `
+          <p>Escaneie o QR Code abaixo ou copie a chave PIX:</p>
+          <img src="./img/qrcode-pix.png" alt="QR Code PIX" class="qr-pix">
+          <p>Chave PIX: 000.000.000-00</p>
+        `;
+      } else {
+        campos.innerHTML = `
+          <label>Número do cartão:
+            <input type="text" placeholder="0000 0000 0000 0000">
+          </label>
+          <label>Nome no cartão:
+            <input type="text" placeholder="Nome completo">
+          </label>
+          <label>Validade:
+            <input type="text" placeholder="MM/AA">
+          </label>
+          <label>CVV:
+            <input type="text" placeholder="123">
+          </label>
+        `;
+      }
+    }
+
+    // Atualiza campos ao mudar o método
+    formas.forEach(radio => radio.addEventListener("change", atualizarCampos));
+    atualizarCampos(); // inicializa
+
+    document.getElementById("finalizarPagamento").addEventListener("click", () => {
+      alert(`Pagamento do serviço "${nome}" realizado com sucesso!`);
+      window.location.href = "../../index.html"; // volta para página inicial
+    });
+  </script>
 </body>
 </html>
-            
