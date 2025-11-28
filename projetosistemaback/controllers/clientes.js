@@ -4,7 +4,7 @@ import db from "../database/dbSynera.js";
 export const criarCliente = (req, res) => {
     const { nome, cpf, email, telefone, senha } = req.body;
 
-    const sql = `INSERT INTO clientes (nome, cpf, email, telefone, senha) VALUES (?, ?, ?, ?)`;
+    const sql = `INSERT INTO clientes (nome, cpf, email, telefone, senha) VALUES (?, ?, ?, ?, ?)`;
 
     db.run(sql, [nome, cpf, email, telefone, senha], function (err) {
         if (err) {
@@ -16,8 +16,25 @@ export const criarCliente = (req, res) => {
             nome,
             cpf,
             email,
-            telefone
+            telefone,
+            senha
         });
+    });
+};
+
+export const loginCliente = (req, res) => {
+    const { email, senha } = req.body;
+
+    const sql = `SELECT * FROM clientes WHERE email = ? AND senha = ?`;
+
+    db.get(sql, [email, senha], (err, user) => {
+        if (err) return res.status(500).json({ error: "Erro ao buscar usuário" });
+
+        if (!user) {
+            return res.status(401).json({ error: "Email ou senha incorretos" });
+        }
+
+        res.status(200).json({ mensagem: "Login realizado", user });
     });
 };
 

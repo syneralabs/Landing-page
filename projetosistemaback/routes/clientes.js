@@ -3,12 +3,15 @@ import {
     criarCliente,
     listarClientes,
     editarCliente,
-    deletarCliente
+    deletarCliente,
+    loginCliente
 } from "../controllers/clientes.js";
 
 const router = express.Router();
 
-router.post("/cadastrar", criarCliente);
+router.post("/cadastro", criarCliente);
+router.post("/login", loginCliente);
+
 router.get("/listar", listarClientes);
 router.put("/editar/:id", editarCliente);
 router.delete("/deletar/:id", deletarCliente);
