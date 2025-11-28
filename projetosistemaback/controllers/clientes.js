@@ -34,7 +34,7 @@ export const loginCliente = (req, res) => {
             return res.status(401).json({ error: "Email ou senha incorretos" });
         }
 
-        res.status(200).json({ mensagem: "Login realizado", user });
+        res.status(200).json({ mensagem: "Login realizado"});
     });
 };
 
