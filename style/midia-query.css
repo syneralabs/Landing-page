@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 @media screen and (min-width: 768px) {
 <<<<<<< Updated upstream
    #button {
@@ -50,6 +51,10 @@
         display: inline-block;
     }
     
+=======
+@media screen and (min-width: 768px) and (max-width: 2560px) {
+
+>>>>>>> Stashed changes
     .container {
         flex-direction: column;
         padding: 10px;
@@ -63,5 +68,8 @@
         flex-direction: column;
     }
     
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 }
