@@ -1,4 +1,6 @@
 import express from "express";
+import session from "express-session";
+
 import {
     criarCliente,
     listarClientes,
