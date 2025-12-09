@@ -35,10 +35,12 @@ export function Createtables() {
     db.run(`CREATE TABLE IF NOT EXISTS clientes (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         nome TEXT NOT NULL,
-        cpf TEXT NOT NULL UNIQUE,
+        cpf TEXT UNIQUE,
         telefone TEXT,
         email TEXT UNIQUE,
-        senha TEXT NOT NULL
+        senha TEXT NOT NULL,
+        google_id TEXT UNIQUE,
+        foto TEXT
     )`);
 
     // Criar tabela de serviços 

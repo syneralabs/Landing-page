@@ -15,6 +15,10 @@ dotenv.config({
     path: path.join(__dirname, "../.env")
 });
 
+// import db, { Createtables } from "../database/dbSynera.js";
+
+// Createtables();
+
 import clientesRoutes from "../routes/clientes.js";
 import servicosRoutes from "../routes/servicos.js";
 import pagamentosRoutes from "../routes/pagamentos.js";
@@ -41,7 +45,30 @@ passport.use(new GoogleStrategy({
     callbackURL: "http://localhost:3000/auth/google/callback"
 },
 (accessToken, refreshToken, profile, done) => {
-    return done(null, profile);
+    const email = profile.emails[0].value;
+    const nome = profile.displayName;
+    const googleId = profile.id;
+    const foto = profile.photos[0]?.value;
+
+    db.get(`SELECT * FROM clientes WHERE email = ?`, [email], (err, user) => {
+        if (err) return done(err);
+
+        if (user) return done(null, user);
+
+        const sql = `
+            INSERT INTO clientes (nome, email, senha, google_id, foto)
+            VALUES (?, ?, ?, ?, ?)
+        `;
+
+        db.run(sql, [nome, email, null, googleId, foto], function (err) {
+            if (err) return done(err);
+
+            db.get(`SELECT * FROM clientes WHERE id = ?`, [this.lastID], (err, newUser) => {
+                if (err) return done(err);
+                return done(null, newUser);
+            });
+        });
+    });
 }));
 
 passport.serializeUser((user, done) => done(null, user));
