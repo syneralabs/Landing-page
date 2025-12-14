@@ -211,6 +211,11 @@ input:-webkit-autofill
     z-index: 13;
 }
 
+#social-login-google {
+    display: inline-block;
+    margin-left: 10px;
+}
+
 .sign-in-js .content::before {
     left: 60%;
     border-top-left-radius: 0;

@@ -21,6 +21,9 @@ const db = new sqlite3.Database(dbPath, (err) => {
     }
 });
 
+// Exportando corretamente
+export default db;
+
 export function Createtables() {
     db.serialize(() => {
     // Criar tabela de usuários
@@ -66,5 +69,4 @@ export function Createtables() {
     )`);
 });
 }
-// Exportando corretamente
-export default db;
+
