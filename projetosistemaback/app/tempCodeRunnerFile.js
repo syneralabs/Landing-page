@@ -1,11 +1,9 @@
-app.get("/api/usuario", (req, res) => {
-    if (!req.user) {
-        return res.status(401).json({ error: "Não autenticado" });
-    }
 
-    res.json({
-        nome: req.user.nome,
-        email: req.user.email,
-        foto: req.user.foto
-    });
-});
+);
+
+app.get("/auth/google/callback",
+    passport.authenticate("google", {
+        failureRedirect: "/login"
+    }),
+    (req, res) => {
+        res.sendFile(path.join(__dirname, "..", "..", "public", "dashb
