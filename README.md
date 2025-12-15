@@ -82,7 +82,7 @@ O site é composto por módulos integrados:
 ## 📫 Contato: 
 
 📧 E-mail: syneralabs@gmail.com  
-🌍 Site:  
+🌍 Site:  https://syneralabs.github.io/Landing-page/
 💼 LinkedIn: https://www.linkedin.com/in/synera-labs-undefined-a52416397/
 
 📍 Localização: São Paulo 
