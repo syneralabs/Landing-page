@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="/style/style.css">
+    <style>
+        .profile-container{max-width:720px;margin:80px auto;padding:20px;background:#fff;border-radius:8px}
+        .profile-header{display:flex;align-items:center;gap:16px}
+        .profile-avatar{width:96px;height:96px;border-radius:50%;object-fit:cover}
+        .profile-name{font-size:22px;font-weight:700}
+        .profile-email{color:#666}
+        .profile-actions{margin-top:20px}
+        .btn{display:inline-block;padding:8px 12px;border-radius:6px;text-decoration:none;background:#0070B6;color:#fff}
+    </style>
+</head>
+<body>
+    <main>
+        <div class="profile-container">
+            <div class="profile-header">
+                <img class="profile-avatar" id="avatar" src="/img/default-profile.svg" alt="Avatar">
+                <div>
+                    <div class="profile-name" id="name">Usuário</div>
+                    <div class="profile-email" id="email">email@exemplo.com</div>
+                </div>
+            </div>
+            <form id="editProfileForm" style="margin-top:18px">
+                <div style="display:flex;gap:12px;align-items:center;margin-top:12px">
+                    <label style="flex:1">
+                        <div style="font-weight:600;margin-bottom:6px">Nome</div>
+                        <input id="inputNome" name="nome" type="text" style="width:100%;padding:8px;border-radius:6px;border:1px solid #ddd">
+                    </label>
+                    <label style="width:260px">
+                        <div style="font-weight:600;margin-bottom:6px">Foto (URL)</div>
+                        <input id="inputFoto" name="foto" type="url" placeholder="https://..." style="width:100%;padding:8px;border-radius:6px;border:1px solid #ddd">
+                    </label>
+                </div>
+                <div style="margin-top:12px">
+                    <button type="submit" class="btn">Salvar</button>
+                    <a href="/dashboard.html" class="btn" style="margin-left:8px">Ir para Dashboard</a>
+                    <a href="/logout" class="btn" style="background:#c0392b;margin-left:8px">Sair</a>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        (async function(){
+            // tentar localStorage primeiro
+            let user = null;
+            try{ const s = localStorage.getItem('user'); if(s) user = JSON.parse(s);}catch(e){user=null}
+
+            if(!user){
+                try{
+                    const res = await fetch('/api/me',{credentials:'include'});
+                    if(res.ok) user = await res.json();
+                }catch(e){ /* ignore */ }
+            }
+
+            if(user){
+                document.getElementById('name').textContent = user.nome || 'Usuário';
+                document.getElementById('email').textContent = user.email || '';
+                const avatar = document.getElementById('avatar');
+                avatar.src = user.foto ? (user.foto.startsWith('/')? user.foto : user.foto) : '/img/default-profile.svg';
+                avatar.alt = user.nome ? `Foto de ${user.nome}` : 'Avatar';
+
+                // preencher form
+                document.getElementById('inputNome').value = user.nome || '';
+                document.getElementById('inputFoto').value = user.foto || '';
+
+                // submit do form -> PUT /clientes/editar/:id
+                document.getElementById('editProfileForm').addEventListener('submit', async function(e){
+                    e.preventDefault();
+                    const nome = document.getElementById('inputNome').value.trim();
+                    const foto = document.getElementById('inputFoto').value.trim();
+
+                    try{
+                        const res = await fetch(`/clientes/editar/${user.id}`, {
+                            method: 'PUT',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ nome, foto })
+                        });
+
+                        const result = await res.json();
+                        if(res.ok){
+                            // atualizar UI e localStorage
+                            const newUser = result.user || {};
+                            document.getElementById('name').textContent = newUser.nome || nome;
+                            document.getElementById('avatar').src = newUser.foto ? (newUser.foto.startsWith('/')? newUser.foto : newUser.foto) : '/img/default-profile.svg';
+                            // atualizar localStorage
+                            try{
+                                const stored = JSON.parse(localStorage.getItem('user') || '{}');
+                                const merged = Object.assign(stored, newUser);
+                                localStorage.setItem('user', JSON.stringify(merged));
+                            }catch(e){}
+                            alert('Perfil atualizado com sucesso');
+                        } else {
+                            alert('Erro: ' + (result.error || 'Falha ao atualizar'));
+                        }
+                    }catch(e){
+                        console.error(e);
+                        alert('Erro ao conectar ao servidor');
+                    }
+                });
+            } else {
+                // se não autenticado, redirecionar para login
+                window.location.href = '/login.html';
+            }
+        })();
+    </script>
+</body>
+</html>

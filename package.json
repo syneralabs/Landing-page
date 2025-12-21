@@ -4,6 +4,7 @@
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "express-session": "^1.18.2",
+    "multer": "^2.0.2",
     "node": "^25.2.1",
     "passport": "^0.7.0",
     "passport-facebook": "^3.0.0",
