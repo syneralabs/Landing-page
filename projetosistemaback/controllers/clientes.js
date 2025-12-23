@@ -42,7 +42,17 @@ export const loginCliente = (req, res) => {
             return res.status(401).json({ error: "Email ou senha incorretos" });
         }
 
-        res.status(200).json({ mensagem: "Login realizado"});
+        // Retornar dados do usuário (sem senha) para o cliente poder manter sessão local
+        const userData = {
+            id: user.id,
+            nome: user.nome,
+            cpf: user.cpf,
+            telefone: user.telefone,
+            email: user.email,
+            foto: user.foto || null
+        };
+
+        res.status(200).json({ mensagem: "Login realizado", user: userData });
     });
 };
 
@@ -58,19 +68,23 @@ export const listarClientes = (req, res) => {
 // Editar cliente
 export const editarCliente = (req, res) => {
     const { id } = req.params;
-    const { nome, cpf, email, telefone } = req.body;
+    const { nome, cpf, email, telefone, foto } = req.body;
 
     const sql = `
         UPDATE clientes 
-        SET nome=?, cpf=?, email=?, telefone=?
+        SET nome=?, cpf=?, email=?, telefone=?, foto=?
         WHERE id=?`;
 
-    db.run(sql, [nome, cpf, email, telefone, id], function (err) {
+    db.run(sql, [nome, cpf, email, telefone, foto, id], function (err) {
         if (err) return res.status(500).json({ error: "Erro ao atualizar cliente" });
 
         if (this.changes === 0) return res.status(404).json({ error: "Cliente não encontrado" });
 
-        res.status(200).json({ mensagem: "Cliente atualizado com sucesso" });
+        // retornar versão atualizada do usuário (sem senha)
+        db.get(`SELECT id, nome, cpf, telefone, email, foto FROM clientes WHERE id = ?`, [id], (err, row) => {
+            if (err) return res.status(500).json({ error: "Erro ao buscar usuário atualizado" });
+            res.status(200).json({ mensagem: "Cliente atualizado com sucesso", user: row });
+        });
     });
 };
 

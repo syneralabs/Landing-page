@@ -56,7 +56,12 @@ document.getElementById("loginForm").addEventListener("submit", async function (
         console.log(result);
 
         if (response.ok) {
+            // armazenar dados do usuário e redirecionar para dashboard
+            if (result.user) {
+                localStorage.setItem('user', JSON.stringify(result.user));
+            }
             alert("Login realizado!");
+            window.location.href = '/dashboard.html';
         } else {
             alert("Erro: " + result.error);
         }

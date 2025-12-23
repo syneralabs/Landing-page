@@ -117,6 +117,19 @@ app.use('/img', express.static(path.join(__dirname, '..', '..', 'img')));
 passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((user, done) => done(null, user));
 
+// Logout route
+app.get('/logout', (req, res, next) => {
+    if (req.logout) {
+        req.logout(function(err) {
+            if (err) return next(err);
+            req.session.destroy(() => res.redirect('/'));
+        });
+    } else {
+        // fallback
+        req.session.destroy(() => res.redirect('/'));
+    }
+});
+
 // 🚀 LOGIN GOOGLE
 app.get("/auth/google",
     passport.authenticate("google", { scope: ["profile", "email"] })
