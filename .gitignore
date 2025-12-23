@@ -28,3 +28,6 @@ database/*.db
 # Arquivos temporários
 *.tmp
 *.log
+.env
+.env
+.env
