@@ -38,12 +38,22 @@ function fileFilter (req, file, cb) {
 
 const upload = multer({ storage, fileFilter, limits: { fileSize: 2 * 1024 * 1024 } });
 
-// rota para upload de foto (multipart/form-data)
-router.post('/upload-photo/:id', upload.single('foto'), uploadPhoto);
+// middleware que permite upload opcionalmente
+const uploaderOptional = (req, res, next) => {
+    upload.single('foto')(req, res, (err) => {
+        if (err && err instanceof multer.MulterError) {
+            return res.status(400).json({ error: 'Erro ao fazer upload: ' + err.message });
+        } else if (err) {
+            return res.status(400).json({ error: 'Erro ao fazer upload' });
+        }
+        next();
+    });
+};
 
-// permitir envio de foto já no cadastro
-router.post('/cadastro', upload.single('foto'), criarCliente);
+// rotas
+router.post('/cadastro', uploaderOptional, criarCliente);
 router.post('/login', loginCliente);
+router.post('/upload-photo/:id', upload.single('foto'), uploadPhoto);
 
 router.get("/listar", listarClientes);
 router.put("/editar/:id", editarCliente);
