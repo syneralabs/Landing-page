@@ -24,7 +24,7 @@
 /* Estilização do body */
 
 body{
-  min-height: 100vh;
+  height: 1000%;
     font-family: "Inter", sans-serif; /*Fonte do projetor usando Inter e sans-serif*/
     background-color: var(--primary-color);
     color: var(--stroke-color);
@@ -216,7 +216,7 @@ h2 {
 
 .cards {
   width: 100%;
-  max-width: 1100px;        
+  max-width: 900px;         
   margin: 0 auto;           
   display: flex;
   justify-content: center;  
@@ -226,14 +226,6 @@ h2 {
   padding: 60px 0px ;          
   position: relative;
 }
-
-/* Menu usuário (avatar+nome) responsivo */
-.menu-user-btn { background: transparent; border: 0; display:flex; align-items:center; cursor:pointer }
-.menu-avatar { width:32px; height:32px; border-radius:50%; object-fit:cover }
-.menu-user-dropdown { display:inline-block; position:relative }
-.menu-user-options { display:none; position:absolute; right:0; top:40px; background:#fff; list-style:none; padding:8px; border-radius:6px; box-shadow:0 6px 18px rgba(0,0,0,0.12) }
-.menu-user-dropdown.open .menu-user-options { display:block }
-.menu-user-option { display:block; padding:8px 12px; color:#333; text-decoration:none }
 
 .card1,
 .card3 {
@@ -339,7 +331,7 @@ section {
   overflow: hidden;
   width: 100%;
   max-width: 700px;
-  margin: 70px auto;
+  margin: 70px 60px;
   padding: 0 20px;
 }
 
@@ -390,7 +382,7 @@ section {
   width: 100%;
   height: 400px;
   max-width: 700px;
-  margin: 70px auto;
+  margin: 70px 50px;
   padding: 0 20px;
 }
 
@@ -554,4 +546,14 @@ section {
   .titles-footer {
     padding: 15px 0px 15px 0px;
   }
+
+  .container-slid2 {
+    
+  margin: 70px auto;
+}
+
+.container-slid {
+  
+  margin: 70px auto;
+}
 }
