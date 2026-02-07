@@ -1,5 +1,7 @@
 import express from "express";
 import cors from "cors";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 // Importar rotas
 import clientesRoutes from './routes/clientes.js';
@@ -15,8 +17,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Servir arquivos estáticos (páginas HTML, CSS, JS, imagens)
-app.use(express.static("public"));
+// Corrigir __dirname em ES modules e servir frontend a partir da pasta pai
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Servir arquivos estáticos do diretório pai (raiz do projeto Landing-page)
+app.use(express.static(path.join(__dirname, "..")));
 
 // Rotas da API
 app.use("/clientes", clientesRoutes);

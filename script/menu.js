@@ -88,6 +88,17 @@
         dropdown.appendChild(btn);
         dropdown.appendChild(options);
 
+        // Logout client-side: limpar localStorage e redirecionar
+        const logoutAnchor = optLogout.querySelector('a');
+        if (logoutAnchor) {
+            logoutAnchor.addEventListener('click', (e) => {
+                e.preventDefault();
+                try { localStorage.removeItem('user'); } catch (err) {}
+                // tentar notificar servidor (pode não existir sessão)
+                fetch('/logout').finally(() => window.location.href = '/');
+            });
+        }
+
         // Substituir link de login pelo dropdown
         loginLink.parentElement.replaceChild(dropdown, loginLink);
 

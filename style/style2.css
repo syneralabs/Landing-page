@@ -22,6 +22,174 @@ body {
     font-family: 'Open Sans', sans-serif;
     background-color: var(--primary-color);
 }
+
+#content-herder{
+    position: relative;    
+    background-color: var(--second-color);
+    width: 100%;
+}
+
+#content-herder h1{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    font-weight: bolder;   
+}
+
+#content-herder #menu{
+    position: absolute;
+    top: 10px;
+    right: 0;
+    font-size: 16px;
+    font-weight: normal;   
+}
+
+.Menu-fixed {
+  width: 100%;
+  height: 30px;
+  position: fixed; 
+  z-index: 999;
+}
+
+/* Menu */
+.button {
+  background: var(--button-color);
+  border: 0;
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0.6;
+  scale: 0.7;
+  border-radius: 8px;
+  transition: 0.25s;
+}
+
+.button:hover {
+  opacity: 1;
+  background: var(--button-color);
+}
+
+.logoH1 {
+  color: var(--logo-color);
+}
+
+
+.burger {
+  position: relative;
+  width: 32px;
+  border: 0;
+}
+
+.burger,
+.burger::before,
+.burger::after {
+  display: block;
+  border-radius: 2px;
+  height: 2px;
+  background: var(--background-burger);
+  transition: 0.3s;
+}
+
+.burger::before,
+.burger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+
+.burger::before {
+  top: -8px;
+}
+
+.burger::after {
+  top: 8px;
+}
+
+.ham {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 400ms;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transform: scaleY(0.8) scaleX(1.2);
+}
+
+.burger-6.is-closed.hamRotate {
+  transform: rotate(45deg) scale(1.2);
+}
+
+.line {
+  fill: none;
+  transition: 0.4s;
+  stroke: var(--stroke-color);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+.ham1 .top {
+  stroke-dasharray: 40 139;
+}
+.ham1 .bottom {
+  stroke-dasharray: 40 180;
+}
+.burger-6.is-closed.ham1 .top {
+  stroke-dashoffset: -98px;
+}
+.burger-6.is-closed.ham1 .bottom {
+  stroke-dashoffset: -138px;
+}
+
+/* Texto do menu */
+
+ul li{ 
+  list-style: none;
+  display: inline-block;
+  padding-right: 15px;
+}
+
+ul li a {
+    direction: rtl;
+    text-decoration: none;
+    color: var(--color-geral);
+    
+}
+
+#menu {
+  display: block;
+}
+
+#button {
+  display: none;
+}
+
+.esconder{
+    display: block;
+}
+
+.mostra {
+    display: block;
+}
+
+.text-menu {
+  color: var(--stroke-color);
+}
+
+.laser {
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  width: 0;
+  background: var(--logo-color);
+  box-shadow: 0 0 10px var(--logo-color), 0 0 20px var(--logo-color);
+  transition: 0.25s ease;
+}
+
 .container {
     display: flex;
     justify-content: center;

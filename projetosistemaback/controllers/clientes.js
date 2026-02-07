@@ -1,12 +1,50 @@
 import db from "../database/dbSynera.js";
+import fs from 'fs';
+import sharp from 'sharp';
+import bcrypt from 'bcryptjs';
 
 // Criar cliente
 export const criarCliente = (req, res) => {
-    const { nome, cpf, email, telefone, senha } = req.body;
+    const { nome, cpf, email, telefone } = req.body;
+    const senha = req.body.senha || '';
 
-    const sql = `INSERT INTO clientes (nome, cpf, email, telefone, senha) VALUES (?, ?, ?, ?, ?)`;
+    // validação básica de campos
+    if (!nome || !email || !senha) return res.status(400).json({ error: 'Nome, email e senha são obrigatórios' });
 
-    db.run(sql, [nome, cpf, email, telefone, senha], function (err) {
+    // política de senha: mínimo 8 caracteres, letras e números
+    if (senha.length < 8 || !/[A-Za-z]/.test(senha) || !/[0-9]/.test(senha)) {
+        return res.status(400).json({ error: 'A senha deve ter pelo menos 8 caracteres e incluir letras e números' });
+    }
+
+    // hash da senha
+    const salt = bcrypt.genSaltSync(10);
+    const senhaHash = bcrypt.hashSync(senha, salt);
+
+    // tratar foto enviada via multer (req.file)
+    let fotoPath = null;
+    if (req.file) {
+        fotoPath = `/img/uploads/${req.file.filename}`;
+        // redimensionar/imagem para 600x600 max
+        const fileOnDisk = req.file.path;
+        (async () => {
+            try {
+                const meta = await sharp(fileOnDisk).metadata();
+                if (meta.width < 100 || meta.height < 100) {
+                    // apagar arquivo e rejeitar (pequeno demais)
+                    try { await fs.promises.unlink(fileOnDisk); } catch(e){}
+                    fotoPath = null;
+                } else {
+                    await sharp(fileOnDisk).resize(600, 600, { fit: 'cover' }).jpeg({ quality: 80 }).toFile(fileOnDisk);
+                }
+            } catch (err) {
+                console.error('Sharp error', err);
+            }
+        })();
+    }
+
+    const sql = `INSERT INTO clientes (nome, cpf, email, telefone, senha, foto) VALUES (?, ?, ?, ?, ?, ?)`;
+
+    db.run(sql, [nome, cpf, email, telefone, senhaHash, fotoPath], function (err) {
         if (err) {
             if (err.message.includes("UNIQUE constraint failed: clientes.cpf")) {
                 return res.status(400).json({ error: "CPF já cadastrado" });
@@ -25,7 +63,7 @@ export const criarCliente = (req, res) => {
             cpf,
             email,
             telefone,
-            senha
+            foto: fotoPath
         });
     });
 };
@@ -33,14 +71,18 @@ export const criarCliente = (req, res) => {
 export const loginCliente = (req, res) => {
     const { email, senha } = req.body;
 
-    const sql = `SELECT * FROM clientes WHERE email = ? AND senha = ?`;
+    const sql = `SELECT * FROM clientes WHERE email = ?`;
 
-    db.get(sql, [email, senha], (err, user) => {
+    db.get(sql, [email], (err, user) => {
         if (err) return res.status(500).json({ error: "Erro ao buscar usuário" });
 
         if (!user) {
             return res.status(401).json({ error: "Email ou senha incorretos" });
         }
+
+        // comparar senha com hash
+        const match = bcrypt.compareSync(senha, user.senha);
+        if (!match) return res.status(401).json({ error: 'Email ou senha incorretos' });
 
         // Retornar dados do usuário (sem senha) para o cliente poder manter sessão local
         const userData = {
@@ -99,4 +141,38 @@ export const deletarCliente = (req, res) => {
 
         res.status(200).json({ mensagem: "Cliente deletado com sucesso" });
     });
+};
+
+// Upload de foto de perfil
+export const uploadPhoto = (req, res) => {
+    const { id } = req.params;
+
+    if (!req.file) return res.status(400).json({ error: 'Nenhum arquivo enviado' });
+
+    // caminho público que será salvo no DB
+    const fileOnDisk = req.file.path;
+    (async () => {
+        try {
+            const meta = await sharp(fileOnDisk).metadata();
+            if (meta.width < 100 || meta.height < 100) {
+                try { await fs.promises.unlink(fileOnDisk); } catch(e){}
+                return res.status(400).json({ error: 'Imagem muito pequena (mínimo 100x100)' });
+            }
+
+            // redimensionar e comprimir
+            await sharp(fileOnDisk).resize(600, 600, { fit: 'cover' }).jpeg({ quality: 80 }).toFile(fileOnDisk);
+
+            const publicPath = `/img/uploads/${req.file.filename}`;
+            const sql = `UPDATE clientes SET foto = ? WHERE id = ?`;
+            db.run(sql, [publicPath, id], function (err) {
+                if (err) return res.status(500).json({ error: 'Erro ao salvar foto' });
+                // retornar caminho novo
+                return res.status(200).json({ mensagem: 'Foto atualizada', foto: publicPath });
+            });
+        } catch (err) {
+            console.error('uploadPhoto error', err);
+            try { await fs.promises.unlink(fileOnDisk); } catch(e){}
+            return res.status(500).json({ error: 'Erro ao processar imagem' });
+        }
+    })();
 };

@@ -42,6 +42,14 @@
                     <a href="/logout" class="btn" style="background:#c0392b;margin-left:8px">Sair</a>
                 </div>
             </form>
+            <!-- formulário para upload de foto (arquivo) -->
+            <form id="uploadPhotoForm" style="margin-top:12px">
+                <div style="margin-top:12px">
+                    <label style="display:block;margin-bottom:8px">Enviar nova foto de perfil</label>
+                    <input id="inputFile" name="foto" type="file" accept="image/*">
+                    <button type="submit" class="btn" style="margin-left:8px">Enviar foto</button>
+                </div>
+            </form>
         </div>
     </main>
 
@@ -106,6 +114,47 @@
             } else {
                 // se não autenticado, redirecionar para login
                 window.location.href = '/login.html';
+            }
+
+            // upload de foto (multipart/form-data) para /clientes/upload-photo/:id
+            const uploadForm = document.getElementById('uploadPhotoForm');
+            if (uploadForm) {
+                uploadForm.addEventListener('submit', async function(e){
+                    e.preventDefault();
+                    try{
+                        const fileInput = document.getElementById('inputFile');
+                        if(!fileInput || !fileInput.files || fileInput.files.length === 0){
+                            alert('Selecione um arquivo');
+                            return;
+                        }
+
+                        const formData = new FormData();
+                        formData.append('foto', fileInput.files[0]);
+
+                        const res = await fetch(`/clientes/upload-photo/${user.id}`, {
+                            method: 'POST',
+                            body: formData
+                        });
+
+                        const data = await res.json();
+                        if(res.ok){
+                            const newFoto = data.foto;
+                            document.getElementById('avatar').src = newFoto;
+                            // atualizar localStorage
+                            try{
+                                const stored = JSON.parse(localStorage.getItem('user') || '{}');
+                                stored.foto = newFoto;
+                                localStorage.setItem('user', JSON.stringify(stored));
+                            }catch(e){}
+                            alert('Foto enviada com sucesso');
+                        } else {
+                            alert('Erro ao enviar foto: ' + (data.error || ''));
+                        }
+                    }catch(e){
+                        console.error(e);
+                        alert('Erro ao conectar ao servidor');
+                    }
+                });
             }
         })();
     </script>

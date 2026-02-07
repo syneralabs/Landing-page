@@ -3,13 +3,13 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import passport from "passport";
 import session from "express-session";
-import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import db from "../database/dbSynera.js";
 
 import path from "path";
 import { fileURLToPath } from "url";
 import https from 'https';
 import http from 'http';
+import fs from 'fs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -42,70 +42,15 @@ app.use(session({
 }));
 
 // PASSPORT - uma única vez
-app.use(passport.initialize());
-app.use(passport.session());
+// Passport permanece disponível apenas para compatibilidade de sessão
+try{
+    if (passport && passport.initialize) {
+        app.use(passport.initialize());
+        app.use(passport.session());
+    }
+}catch(e){}
 
-// ESTRATÉGIA GOOGLE
-passport.use(new GoogleStrategy({
-    clientID: process.env.GOOGLE_CLIENT_ID,
-    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/google/callback"
-},
-    (accessToken, refreshToken, profile, done) => {
-        // profile photos logging removed
-
-        const email = profile.emails[0].value;
-        const nome = profile.displayName;
-        const googleId = profile.id;
-        const foto = profile.photos?.[0]?.value || profile._json?.picture || null;
-
-        db.get(`SELECT * FROM clientes WHERE email = ?`, [email], (err, user) => {
-            if (err) return done(err);
-
-            if (user) {
-                // Se o usuário existe mas não tem foto registrada, atualiza com a foto do perfil Google
-                const updates = [];
-                const params = [];
-                if ((!user.foto || user.foto === '') && foto) {
-                    updates.push('foto = ?');
-                    params.push(foto);
-                }
-                if ((!user.google_id || user.google_id === '') && googleId) {
-                    updates.push('google_id = ?');
-                    params.push(googleId);
-                }
-
-                if (updates.length > 0) {
-                    params.push(user.id);
-                    const sqlUpdate = `UPDATE clientes SET ${updates.join(', ')} WHERE id = ?`;
-                    db.run(sqlUpdate, params, function (err) {
-                        if (err) return done(err);
-                        // Buscar usuário atualizado
-                        db.get(`SELECT * FROM clientes WHERE id = ?`, [user.id], (err, updatedUser) => {
-                            if (err) return done(err);
-                            return done(null, updatedUser);
-                        });
-                    });
-                } else {
-                    return done(null, user);
-                }
-            }
-
-            const sql = `
-            INSERT INTO clientes (nome, email, senha, google_id, foto)
-            VALUES (?, ?, ?, ?, ?)
-        `;
-
-            db.run(sql, [nome, email, null, googleId, foto], function (err) {
-                if (err) return done(err);
-
-                db.get(`SELECT * FROM clientes WHERE id = ?`, [this.lastID], (err, newUser) => {
-                    if (err) return done(err);
-                    return done(null, newUser);
-                });
-            });
-        });
-    }));
+// (Login social via providers foi removido conforme requisitado)
 
 app.use(express.static(path.join(__dirname, "..", "public")));
 
@@ -113,6 +58,14 @@ app.use(express.static(path.join(__dirname, "..", "public")));
 app.use('/script', express.static(path.join(__dirname, '..', '..', 'script')));
 app.use('/style', express.static(path.join(__dirname, '..', '..', 'style')));
 app.use('/img', express.static(path.join(__dirname, '..', '..', 'img')));
+
+// garantir que pasta de uploads exista
+try {
+    const uploadsDir = path.join(__dirname, '..', '..', 'img', 'uploads');
+    fs.mkdirSync(uploadsDir, { recursive: true });
+} catch (e) {
+    console.error('Erro ao criar pasta de uploads', e);
+}
 
 passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((user, done) => done(null, user));
@@ -130,20 +83,7 @@ app.get('/logout', (req, res, next) => {
     }
 });
 
-// 🚀 LOGIN GOOGLE
-app.get("/auth/google",
-    passport.authenticate("google", { scope: ["profile", "email"] })
-);
-
-app.get("/auth/google/callback",
-    passport.authenticate("google", {
-        failureRedirect: "/login"
-    }),
-    (req, res) => {
-        // debug logs removed for callback
-        res.sendFile(path.join(__dirname, "..", "public", "dashboard.html"));
-    }
-);
+// Rotas de login via social removidas
 
 // Rota de API para retorno dos dados do usuário (usada pelo front-end)
 app.get('/api/me', (req, res) => {

@@ -14,28 +14,45 @@ btnSignup.addEventListener("click", function () {
 
 document.getElementById("cadastroForm").addEventListener("submit", async function (event) {
     event.preventDefault();
-
-    const formData = new FormData(this);
-    const data = Object.fromEntries(formData);
+    const formElem = this;
+    const fileInput = formElem.querySelector('input[type="file"][name="foto"]');
 
     try {
-        const response = await fetch("http://localhost:3000/clientes/cadastro", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
-        });
+        // se houver arquivo, enviar multipart/form-data
+        if (fileInput && fileInput.files && fileInput.files.length > 0) {
+            const formData = new FormData(formElem);
+            const response = await fetch("/clientes/cadastro", {
+                method: "POST",
+                body: formData
+            });
+            const result = await response.json();
+            console.log(result);
 
-        const result = await response.json();
-        console.log(result);
-
-        if (response.ok) {
-            alert("Conta criada com sucesso!");
+            if (response.ok) {
+                alert("Conta criada com sucesso!");
+            } else {
+                alert("Erro: " + (result.error || JSON.stringify(result)));
+            }
         } else {
-            alert("Erro: " + result.error);
+            // sem arquivo, enviar JSON
+            const formData = new FormData(formElem);
+            const data = Object.fromEntries(formData);
+            const response = await fetch("/clientes/cadastro", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+            const result = await response.json();
+            console.log(result);
+            if (response.ok) {
+                alert("Conta criada com sucesso!");
+            } else {
+                alert("Erro: " + (result.error || JSON.stringify(result)));
+            }
         }
-
     } catch (err) {
         console.error("Erro ao conectar ao servidor:", err);
+        alert('Erro de conexão');
     }
 }); // Fim do código de cadastro
 
@@ -46,7 +63,7 @@ document.getElementById("loginForm").addEventListener("submit", async function (
     const data = Object.fromEntries(formData);
 
     try {
-        const response = await fetch("http://localhost:3000/clientes/login", {
+        const response = await fetch("/clientes/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
