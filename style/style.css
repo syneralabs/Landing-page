@@ -481,13 +481,14 @@ section {
 }
 
 /* MOBILE */
-@media (max-width: 768px) {
+@media (max-width: 700px) {
   .slides {
     gap: 10px;
   }
 
-  #menu:has {
-    height: 20em;
+  /* Ajustes do menu para telas pequenas */
+  #menu {
+    height: auto;
   }
 
   #button {
@@ -502,9 +503,15 @@ section {
 
   .esconder{
     display: none;
-    height: 100%;
+    height: auto;
     background-color: var(--primary-color);
     padding: 30px;
+    position: absolute;
+    top: 60px;
+    right: 16px;
+    left: 16px;
+    border-radius: 8px;
+    z-index: 200;
   }
 
   .mostra {
@@ -556,4 +563,108 @@ section {
   
   margin: 70px auto;
 }
+}
+
+/* Dropdown do menu de usuário */
+.menu-user-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.menu-user-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.menu-user-btn:hover {
+  transform: scale(1.1);
+}
+
+.menu-user-btn img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.menu-user-dropdown.open .menu-user-btn img {
+  border: 2px solid var(--second-color);
+}
+
+.menu-user-header {
+  display: none !important;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.menu-user-header div:first-child {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.menu-user-header div:last-child {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.menu-user-options {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  list-style: none;
+  background: white;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  min-width: 200px;
+  margin-top: 8px;
+  padding: 0;
+  display: none !important;
+  z-index: 1000;
+}
+
+.menu-user-dropdown.open .menu-user-options {
+  display: block !important;
+}
+
+.menu-user-dropdown.open .menu-user-header {
+  display: flex !important;
+}
+
+.menu-user-option {
+  display: block;
+  padding: 12px 16px;
+  color: #333;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.menu-user-option:last-child {
+  border-bottom: none;
+}
+
+.menu-user-option:hover {
+  background-color: #f5f5f5;
+  color: var(--second-color);
+}
+
+.logout-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: inherit;
+}
+
+.logout-link svg {
+  width: 16px;
+  height: 16px;
 }

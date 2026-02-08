@@ -46,15 +46,16 @@ export const criarCliente = (req, res) => {
 
     db.run(sql, [nome, cpf, email, telefone, senhaHash, fotoPath], function (err) {
         if (err) {
-            if (err.message.includes("UNIQUE constraint failed: clientes.cpf")) {
+            console.error('criarCliente - erro ao inserir no DB:', err);
+            if (err.message && err.message.includes("UNIQUE constraint failed: clientes.cpf")) {
                 return res.status(400).json({ error: "CPF já cadastrado" });
             }
 
-            if (err.message.includes("UNIQUE constraint failed: clientes.email")) {
+            if (err.message && err.message.includes("UNIQUE constraint failed: clientes.email")) {
                 return res.status(400).json({ error: "E-mail já cadastrado" });
             }
 
-            return res.status(500).json({ error: "Erro ao cadastrar cliente", detalhes: err });
+            return res.status(500).json({ error: "Erro ao cadastrar cliente" });
         }
 
         res.status(201).json({
@@ -74,7 +75,10 @@ export const loginCliente = (req, res) => {
     const sql = `SELECT * FROM clientes WHERE email = ?`;
 
     db.get(sql, [email], (err, user) => {
-        if (err) return res.status(500).json({ error: "Erro ao buscar usuário" });
+        if (err) {
+            console.error('loginCliente - erro ao buscar no DB:', err);
+            return res.status(500).json({ error: "Erro ao buscar usuário" });
+        }
 
         if (!user) {
             return res.status(401).json({ error: "Email ou senha incorretos" });

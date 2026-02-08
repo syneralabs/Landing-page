@@ -12,6 +12,8 @@ btnSignup.addEventListener("click", function () {
     body.className = "sign-up-js";
 })
 
+const API_BASE = 'http://localhost:3000';
+
 document.getElementById("cadastroForm").addEventListener("submit", async function (event) {
     event.preventDefault();
     const formElem = this;
@@ -21,7 +23,7 @@ document.getElementById("cadastroForm").addEventListener("submit", async functio
         // se houver arquivo, enviar multipart/form-data
         if (fileInput && fileInput.files && fileInput.files.length > 0) {
             const formData = new FormData(formElem);
-            const response = await fetch("/clientes/cadastro", {
+            const response = await fetch(`${API_BASE}/clientes/cadastro`, {
                 method: "POST",
                 body: formData
             });
@@ -37,7 +39,7 @@ document.getElementById("cadastroForm").addEventListener("submit", async functio
             // sem arquivo, enviar JSON
             const formData = new FormData(formElem);
             const data = Object.fromEntries(formData);
-            const response = await fetch("/clientes/cadastro", {
+            const response = await fetch(`${API_BASE}/clientes/cadastro`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data)
@@ -63,7 +65,7 @@ document.getElementById("loginForm").addEventListener("submit", async function (
     const data = Object.fromEntries(formData);
 
     try {
-        const response = await fetch("/clientes/login", {
+        const response = await fetch(`${API_BASE}/clientes/login`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
@@ -78,7 +80,8 @@ document.getElementById("loginForm").addEventListener("submit", async function (
                 localStorage.setItem('user', JSON.stringify(result.user));
             }
             alert("Login realizado!");
-            window.location.href = '/dashboard.html';
+            // Voltar para a home na mesma origem do frontend (Live Server ou site estático)
+            window.location.href = window.location.origin + '/';
         } else {
             alert("Erro: " + result.error);
         }

@@ -13,8 +13,24 @@ import { Createtables } from "./database/dbSynera.js";
 
 const app = express();
 
-// Middleware
-app.use(cors());
+// Middleware CORS - aceitar localhost e Live Server
+app.use(cors({
+    origin: function(origin, callback) {
+        const allowed = [
+            'http://localhost:3000',
+            'http://localhost:5500',
+            'http://127.0.0.1:5500',
+            'http://localhost',
+            'http://127.0.0.1'
+        ];
+        if (!origin || allowed.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('CORS bloqueado'), false);
+        }
+    },
+    credentials: true
+}));
 app.use(express.json());
 
 // Corrigir __dirname em ES modules e servir frontend a partir da pasta pai

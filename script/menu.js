@@ -26,19 +26,16 @@
 
         const img = document.createElement('img');
         img.src = user.foto ? (user.foto.startsWith('/') ? user.foto : user.foto) : '/img/default-profile.svg';
-        img.alt = user.nome || 'Perfil';
+        img.alt = 'Perfil';
         img.className = 'menu-avatar';
-        img.style.width = '32px';
-        img.style.height = '32px';
+        img.style.width = '36px';
+        img.style.height = '36px';
         img.style.borderRadius = '50%';
         img.style.objectFit = 'cover';
         img.style.verticalAlign = 'middle';
-        img.style.marginRight = '8px';
+        img.style.marginRight = '0';
 
         profileLink.appendChild(img);
-        const span = document.createElement('span');
-        span.textContent = user.nome || 'Perfil';
-        profileLink.appendChild(span);
 
         // Criar link de logout com ícone
         const logoutLink = document.createElement('a');
@@ -62,13 +59,8 @@
         btn.className = 'menu-user-btn';
         btn.setAttribute('aria-haspopup', 'true');
         btn.setAttribute('aria-expanded', 'false');
-        // colocar o profileLink conteúdo dentro do botão
+        // mostrar apenas a imagem (sem nome); clicar abre o menu
         btn.appendChild(img.cloneNode(true));
-        const nameSpan = document.createElement('span');
-        nameSpan.textContent = user.nome || 'Perfil';
-        nameSpan.className = 'menu-user-name';
-        nameSpan.style.marginLeft = '8px';
-        btn.appendChild(nameSpan);
 
         const options = document.createElement('ul');
         options.className = 'menu-user-options';
@@ -76,13 +68,10 @@
 
         const optProfile = document.createElement('li');
         optProfile.innerHTML = `<a href="/profile.html" role="menuitem" class="menu-user-option">Perfil</a>`;
-        const optDashboard = document.createElement('li');
-        optDashboard.innerHTML = `<a href="/dashboard.html" role="menuitem" class="menu-user-option">Dashboard</a>`;
         const optLogout = document.createElement('li');
         optLogout.innerHTML = `<a href="/logout" role="menuitem" class="menu-user-option">Sair</a>`;
 
         options.appendChild(optProfile);
-        options.appendChild(optDashboard);
         options.appendChild(optLogout);
 
         dropdown.appendChild(btn);
