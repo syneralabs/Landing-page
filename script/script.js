@@ -16,8 +16,10 @@ let cont2 = 0;
 
 button.addEventListener("click", () => {
     if(menu.classList.contains("esconder")){
+        menu.classList.remove("esconder")
         menu.classList.toggle("mostra"); 
     } else {
+        menu.classList.remove("mostra")
         menu.classList.toggle("esconder");
     }
     
