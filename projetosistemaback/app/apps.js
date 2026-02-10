@@ -48,7 +48,9 @@ try{
         app.use(passport.initialize());
         app.use(passport.session());
     }
-}catch(e){}
+}catch(e){
+    console.log(e);
+}
 
 // (Login social via providers foi removido conforme requisitado)
 
